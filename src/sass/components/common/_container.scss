@@ -1,0 +1,18 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: $min-brp-480) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: $min-brp-768) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: $min-brp-1280) {
+    width: 1280px;
+  }
+}
