@@ -1,6 +1,6 @@
 import { Cocktail } from '../js/cocktailApiClass';
+import Notiflix from 'notiflix';
 
-console.log(Cocktail);
 const list = document.querySelector('.modal-ingredients__list');
 const fetchCocktail = new Cocktail();
 const searchCocktails = document.querySelector('.js-search-cocktail');
@@ -13,7 +13,7 @@ export function onFormSubmit(event) {
   console.log(fetchCocktail.query);
 
   if (fetchCocktail.query === '') {
-    return alert('Введіть значення');
+    return Notiflix.Notify.failure('Please, enter the name of the cocktail');
   }
 
   fetchCocktail.getResults().then(createMarkup);
