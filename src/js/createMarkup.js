@@ -24,11 +24,12 @@ function createMarkup(arr) {
 
   const cocktailList = arr.data.drinks
     .map(({ strDrink, strDrinkThumb }) => {
-      return `<li class='card-list'><h2 class="title-card">${strDrink}</h2>
-            <img src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' />
-            <button class='btn-learn-more' type='button'>Learn more</button>
-            <button class='btn-add-to-favorite'>Add to</button>
-          </li>`;
+      return `<li class="cocktail-card">
+           <img src=${strDrinkThumb} alt=${strDrink} 
+           class='cocktail_photo width='395' height='395'' />
+            <h3 class='cocktail_title'>${strDrink}</h3>
+            <button type="button" class="cocktail-more-btn">Learn more</button>
+            <button type="button" class="cocktail-more-btn">Add</button>`
     })
     .join('');
 
