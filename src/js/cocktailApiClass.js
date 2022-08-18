@@ -6,6 +6,7 @@ console.log(BASE_URL);
 class Cocktail {
   constructor() {
     this.name = '';
+    this.letter = '';
     // this.title = '';
     // this.category = '';
     // this.img = '';
@@ -13,22 +14,28 @@ class Cocktail {
   }
 
   async getResults() {
-    // console.log(this);
     try {
       const res = await axios(`${BASE_URL}search.php?s=${this.name}`);
-      //   console.log(res.data);
-      const drinksObj = res.data.drinks[0];
-      this.title = drinksObj.strDrink;
-      this.category = drinksObj.strCategory;
-      this.img = drinksObj.strDrinkThumb;
-      this.ingredients = [];
+      //   const drinksObj = res.data.drinks[0];
+      //   this.title = drinksObj.strDrink;
+      //   this.category = drinksObj.strCategory;
+      //   this.img = drinksObj.strDrinkThumb;
+      //   this.ingredients = [];
 
-      for (let key in drinksObj) {
-        if (key.includes('strIngredient') && drinksObj[key] !== null) {
-          this.ingredients.push(drinksObj[key]);
-        }
-      }
+      //   for (let key in drinksObj) {
+      //     if (key.includes('strIngredient') && drinksObj[key] !== null) {
+      //       this.ingredients.push(drinksObj[key]);
+      //     }
+      //   }
       return res;
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  async getResultsByLetter() {
+    try {
+      return await axios(`${BASE_URL}search.php?f=${this.letter}`);
     } catch (error) {
       alert(error);
     }
