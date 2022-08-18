@@ -1,1 +1,4 @@
-export const refs = {};
+export const refs = {
+    cocktailSet: document.querySelector('.cocktails-set')
+};
+
