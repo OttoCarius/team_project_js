@@ -1,1 +1,3 @@
-export const refs = {};
+export const refs = {
+  heroList: document.querySelector('.js-hero-list'),
+};
