@@ -1,7 +1,6 @@
 import { Cocktail } from '../js/cocktailApiClass';
 import Notiflix from 'notiflix';
 
-console.log(Cocktail);
 const list = document.querySelector('.modal-ingredients__list');
 const fetchCocktail = new Cocktail();
 const searchCocktails = document.querySelector('.js-search-cocktail');
