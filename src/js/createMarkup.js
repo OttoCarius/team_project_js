@@ -1,5 +1,6 @@
 import { Cocktail } from '../js/cocktailApiClass';
 import Notiflix from 'notiflix';
+import { refs } from './refs';
 
 const list = document.querySelector('.modal-ingredients__list');
 const fetchCocktail = new Cocktail();
@@ -19,21 +20,23 @@ export function onFormSubmit(event) {
   fetchCocktail.getResults().then(createMarkup);
 }
 
-function createMarkup(arr) {
+export function createMarkup(arr) {
   list.innerHTML = '';
-
-  const cocktailList = arr.data.drinks
-    .map(({ strDrink, strDrinkThumb }) => {
-      return `<li class="cocktail-card">
-           <img src=${strDrinkThumb} alt=${strDrink} 
-           class='cocktail_photo width='395' height='395'' />
-            <h3 class='cocktail_title'>${strDrink}</h3>
-            <button type="button" class="cocktail-more-btn">Learn more</button>
-            <button type="button" class="cocktail-more-btn">Add</button>`
-    })
-    .join('');
-
-  list.insertAdjacentHTML('beforeend', cocktailList);
+  refs.sectionSorry.classList.add('is-hidden');
+  if (!arr.data.drinks) {
+    refs.sectionSorry.classList.remove('is-hidden');
+  } else {
+    const cocktailList = arr.data.drinks
+      .map(({ strDrink, strDrinkThumb }) => {
+        return `<li class='card-list'><h2 class="title-card">${strDrink}</h2>
+            <img src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' />
+            <button class='btn-learn-more' type='button'>Learn more</button>
+            <button class='btn-add-to-favorite'>Add to</button>
+          </li>`;
+      })
+      .join('');
+    list.insertAdjacentHTML('beforeend', cocktailList);
+  }
 }
 
 // margarita

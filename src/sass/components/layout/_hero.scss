@@ -66,7 +66,7 @@
   @include mq(mob-only) {
     display: none;
   }
-  @include mq(tab-only) {
+  @include mq(tab) {
     width: 326px;
   }
 
@@ -74,11 +74,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-// .hero-list {
-//   width: 520px;
-//   display: flex;
-//   flex-wrap: wrap;
-// }
 
 .hero-button {
   @include mq(tab-only) {
@@ -109,5 +104,29 @@
   color: var(--primary-color);
 }
 
-.select-option {
+.sorry {
+  padding-top: 0;
+}
+.sorry-container {
+  text-align: center;
+}
+
+.sorry-title {
+  @include mq(mob-only) {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.91;
+    margin-bottom: 63px;
+  }
+  @include mq(tab-only) {
+    font-size: 32px;
+    line-height: 1.31;
+    margin-bottom: 63px;
+  }
+  @include mq(desc) {
+    margin-bottom: 84px;
+  }
+}
+.sorry.is-hidden {
+  display: none;
 }

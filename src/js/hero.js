@@ -1,3 +1,5 @@
+import { Cocktail } from '../js/cocktailApiClass';
+import { createMarkup } from './createMarkup';
 const letters = [
   'a',
   'b',
@@ -65,4 +67,7 @@ export function onLetterClick(e) {
   if (e.target.tagName != 'BUTTON') return;
   const letter = e.target.dataset.letter;
   console.log(letter);
+  const cocktailByLetter = new Cocktail();
+  cocktailByLetter.letter = letter;
+  cocktailByLetter.getResultsByLetter().then(createMarkup);
 }
