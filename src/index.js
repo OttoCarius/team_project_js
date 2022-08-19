@@ -10,6 +10,7 @@ import {
   markupHeroLettersMobile,
 } from './js/hero';
 import './js/createMarkup.js';
+import './js/header.js';
 
 refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
