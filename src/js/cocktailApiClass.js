@@ -27,8 +27,7 @@ class Cocktail {
     //     }
     //   }
     try {
-      const res = await axios(`${BASE_URL}search.php?s=${this.name}`);
-      return res;
+      return await axios(`${BASE_URL}search.php?s=${this.name}`);
     } catch (error) {
       alert(error);
     }
@@ -42,6 +41,31 @@ class Cocktail {
     }
   }
 
+  async getResultsRandom() {
+    try {
+      return await axios(`${BASE_URL}random.php`);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  async getResultsRandom() {
+    try {
+      let arr = [];
+      for (let i = 0; i < 9; i += 1) {
+        const cocktail = axios(BASE_URL + 'random.php');
+        arr.push(cocktail);
+      }
+
+      const promiseArr = await Promise.all(arr).then(response => {
+        return response;
+      });
+      return promiseArr;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   get query() {
     return this.name;
   }
@@ -52,5 +76,3 @@ class Cocktail {
 }
 
 export { Cocktail };
-
-// margarita
