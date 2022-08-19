@@ -48,15 +48,15 @@ function createHeroMarkup(items) {
     .join('');
 }
 
-// function createHeroMarkupMobile(items) {
-//   return items
-//     .map(
-//       item =>
-//         `<li class="select-option" data-select="option" data-value="${item}" data-index="1">${item}</li>`
-//     )
-//     .join('');
-// }
+function createHeroMarkupMobile(items) {
+  return items
+    .map(
+      item => `<option class="hero-option-mob" value="${item}">${item}</option>`
+    )
+    .join('');
+}
 
+export const markupHeroLettersMobile = createHeroMarkupMobile(letters);
 export const markupHeroLetters = createHeroMarkup(letters);
 
 export function renderMarkup(element, markup) {
@@ -66,7 +66,15 @@ export function renderMarkup(element, markup) {
 export function onLetterClick(e) {
   if (e.target.tagName != 'BUTTON') return;
   const letter = e.target.dataset.letter;
-  console.log(letter);
+  renderMarkupByCheckedLetter(letter);
+}
+
+export function onSelectChange(e) {
+  const letter = e.target.value;
+  renderMarkupByCheckedLetter(letter);
+}
+
+function renderMarkupByCheckedLetter(letter) {
   const cocktailByLetter = new Cocktail();
   cocktailByLetter.letter = letter;
   cocktailByLetter.getResultsByLetter().then(createMarkup);

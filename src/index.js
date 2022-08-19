@@ -1,11 +1,16 @@
-
 import { refs } from './js/refs';
-import { renderMarkup, markupHeroLetters, onLetterClick } from './js/hero';
+import {
+  renderMarkup,
+  markupHeroLetters,
+  onLetterClick,
+  onSelectChange,
+  markupHeroLettersMobile,
+} from './js/hero';
 import './js/createMarkup.js';
 import './js/cardByLetter.js';
 
 refs.heroList.addEventListener('click', onLetterClick);
+refs.searchSelect.addEventListener('change', onSelectChange);
 
 renderMarkup(refs.heroList, markupHeroLetters);
-
-
+renderMarkup(refs.searchSelect, markupHeroLettersMobile);
