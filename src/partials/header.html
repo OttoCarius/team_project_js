@@ -1,67 +1,77 @@
-<header class="header container">
-  <div class="header__pad">
-    <nav class="navigation">
-      <a class="navigation__logo">
-        <picture>
-          <source
-            srcset="
-              ./images/header/Logo@mob.png   1x,
-              ./images/header/Logo@mob2x.png 2x
-            "
-            media="(max-width: 767px)"
-          />
-          <source
-            srcset="
-              ./images/header/Logo@tab.png   1x,
-              ./images/header/Logo@tab2x.png 2x
-            "
-            media="(min-width: 768px)"
-          />
-          <source />
-          <img
-            class="logo-cocktails"
-            src="./images/header/Logo@mob.png"
-            alt="logo"
-            widt="156"
-          />
-        </picture>
-      </a>
-      <ul class="navigation__list">
-        <li class="navigation__item">
-          <a class="navigation__link" href="#">Home</a>
-        </li>
-        <li class="navigation__item">
-          <a class="navigation__link" href="#">Favorite</a>
-        </li>
-      </ul>
-    </nav>
-    <form class="subscription__form">
-      <div class="subscription__span">
-        <svg class="subscription__icon" width="24" height="24">
+<div class="container header__container">
+  <a href="./index.html" class="header__logo">
+    <picture>
+      <source
+        srcset="
+          ./images/header/Logo@mob.png   1x,
+          ./images/header/Logo@mob2x.png 2x
+        "
+        media="(max-width: 767px)"
+      />
+      <source
+        srcset="
+          ./images/header/Logo@tab.png   1x,
+          ./images/header/Logo@tab2x.png 2x
+        "
+        media="(min-width: 768px)"
+      />
+      <source />
+      <img
+        class="logo-cocktails"
+        src="./images/header/Logo@mob.png"
+        alt="logo"
+        widt="156"
+      />
+    </picture>
+  </a>
+  <div class="desctop-wrapper">
+    <div class="navigation-wrapper">
+      <nav class="desc-menu">
+        <ul class="desc-menu__link">
+          <li><a href="" class="mob-nav__link">Home</a></li>
+          <li>
+            <button href="/" class="mob-nav__link favorite-acctive">
+              Favorite
+            </button>
+            <div class="favorite-wrapper favorite-wrapper__close">
+              <a href="/" class="favorite-link">Favorite cocktails</a>
+              <a href="/" class="favorite-link">Favorite ingredients</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="features-wrapper">
+      <form class="search__form">
+        <svg class="search__icon" width="20" height="20">
           <image xlink:href="./images/focus.svg" />
         </svg>
+        <input class="search__input" type="text" placeholder="Search" />
+      </form>
+
+      <div class="theme-wrapper">
+        <span class="theme-name__light theme-acctive">Light</span>
+        <input type="checkbox" class="checkbox" id="checkbox" />
+        <label for="checkbox" class="label">
+          <div class="ball"></div>
+        </label>
+        <span class="theme-name__dark">Dark</span>
+
+        <button class="btn-login">logIn</button>
       </div>
-      <label class="site-search" for="site-search"></label>
-      <input
-        type="search"
-        id="site-search"
-        name="q"
-        autocomplete="name"
-        placeholder="Search"
-      />
-    </form>
-    <div class="header__switch">
-      <p class="switch__light">Light</p>
-      <label class="switch">
-        <input type="checkbox" />
-        <span class="slider round"></span>
-      </label>
-      <p class="switch__dark">Dark</p>
     </div>
-    <button class="button__menu">
-      <svg class="subscription__icon" width="30" height="17">
-        <image xlink:href="./images/menu.svg" />
+  </div>
+  <button type="button" class="mob-btn-open" aria-label="mobile menu button">
+    <svg class="mob-btn__icon" width="30" height="16">
+      <image xlink:href="./images/menu.svg" />
+    </svg>
+  </button>
+
+  <div class="mob-menu is-hidden" data-menu>
+    <button type="button" class="mob-btn-close" aria-label="mobile menu button">
+      <svg class="mob-btn__icon" width="32" height="32">
+        <image xlink:href="./images/modal-close.svg" />
       </svg>
     </button>
   </div>
-</header>
+</div>
