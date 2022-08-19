@@ -1,37 +1,67 @@
-<header class="header">
-     <div class="container header__pad">
-         <nav class="navigation">
-            <a class="navigation__logo">
-            <svg class="navigation__logo--current" width="156" height="43">       
-     <image class="navigation__logo--currents" xlink:href="./images/logos.svg"/>    
-</svg>
-         </a>
-        <ul class="navigation__list">
-             <li class="navigation__item"><a class="navigation__link" href="#">Home</a></li>
-             <li class="navigation__item"><a class="navigation__link" href="#">Favorite</a></li>
-         </ul>
-        </nav>
-             <form class="subscription__form">
-                 <div class="subscription__span">
-                <svg class="subscription__icon" width="24" height="24">
-                <image xlink:href="./images/focus.svg"/>
-              </svg>
-            </div>
-            <label class="site-search" for="site-search">Search</label>
-            <input type="search" id="site-search" name="q">
-          </form>
-          <div class="header__switch">
-            <p class="switch__light">Light</p>
-            <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-            </label>
-            <p class="switch__dark">Dark</p>
-          </div>
-          <button class="button__menu">
-            <svg class="subscription__icon" width="30" height="17">
-                <image xlink:href="./images/menu.svg"/>
-              </svg>
-          </button> 
-        </div>
+<header class="header container">
+  <div class="header__pad">
+    <nav class="navigation">
+      <a class="navigation__logo">
+        <picture>
+          <source
+            srcset="
+              ./images/header/Logo@mob.png   1x,
+              ./images/header/Logo@mob2x.png 2x
+            "
+            media="(max-width: 767px)"
+          />
+          <source
+            srcset="
+              ./images/header/Logo@tab.png   1x,
+              ./images/header/Logo@tab2x.png 2x
+            "
+            media="(min-width: 768px)"
+          />
+          <source />
+          <img
+            class="logo-cocktails"
+            src="./images/header/Logo@mob.png"
+            alt="logo"
+            widt="156"
+          />
+        </picture>
+      </a>
+      <ul class="navigation__list">
+        <li class="navigation__item">
+          <a class="navigation__link" href="#">Home</a>
+        </li>
+        <li class="navigation__item">
+          <a class="navigation__link" href="#">Favorite</a>
+        </li>
+      </ul>
+    </nav>
+    <form class="subscription__form">
+      <div class="subscription__span">
+        <svg class="subscription__icon" width="24" height="24">
+          <image xlink:href="./images/focus.svg" />
+        </svg>
+      </div>
+      <label class="site-search" for="site-search"></label>
+      <input
+        type="search"
+        id="site-search"
+        name="text"
+        autocomplete="name"
+        placeholder="Search"
+      />
+    </form>
+    <div class="header__switch">
+      <p class="switch__light">Light</p>
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+      <p class="switch__dark">Dark</p>
+    </div>
+    <button class="mob-btn-open">
+      <svg class="subscription__icon" width="30" height="17">
+        <image xlink:href="./images/menu.svg" />
+      </svg>
+    </button>
+  </div>
 </header>
