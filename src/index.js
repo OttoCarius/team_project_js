@@ -1,4 +1,7 @@
 import { refs } from './js/refs';
+
+import { createMarkup } from './js/createMarkup.js';
+import { randomCocktailMarkup } from './js/randomCocktail';
 import {
   renderMarkup,
   markupHeroLetters,
@@ -13,4 +16,6 @@ refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
 
 renderMarkup(refs.heroList, markupHeroLetters);
+
+randomCocktailMarkup();
 renderMarkup(refs.searchSelect, markupHeroLettersMobile);
