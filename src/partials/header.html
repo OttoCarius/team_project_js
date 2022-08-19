@@ -1,13 +1,30 @@
 <header class="header container">
-  <div class="container header__pad">
+  <div class="header__pad">
     <nav class="navigation">
       <a class="navigation__logo">
-        <svg class="navigation__logo--current" width="156" height="43">
-          <image
-            class="navigation__logo--currents"
-            xlink:href="./images/logos.svg"
+        <picture>
+          <source
+            srcset="
+              ./images/header/Logo@mob.png   1x,
+              ./images/header/Logo@mob2x.png 2x
+            "
+            media="(max-width: 767px)"
           />
-        </svg>
+          <source
+            srcset="
+              ./images/header/Logo@tab.png   1x,
+              ./images/header/Logo@tab2x.png 2x
+            "
+            media="(min-width: 768px)"
+          />
+          <source />
+          <img
+            class="logo-cocktails"
+            src="./images/header/Logo@mob.png"
+            alt="logo"
+            widt="156"
+          />
+        </picture>
       </a>
       <ul class="navigation__list">
         <li class="navigation__item">
