@@ -4,7 +4,7 @@ import { refs } from './refs';
 
 const list = document.querySelector('.modal-ingredients__list');
 const fetchCocktail = new Cocktail();
-const searchCocktails = document.querySelector('.search__form');
+const searchCocktails = document.querySelector('.js-search-cocktail');
 searchCocktails.addEventListener('submit', onFormSubmit);
 
 export function onFormSubmit(event) {
