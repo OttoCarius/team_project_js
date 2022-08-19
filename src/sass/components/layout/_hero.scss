@@ -1,26 +1,25 @@
 .hero {
   font-family: var(--primary-font);
+  padding-top: 0;
 
   @include mq(mob) {
-    padding-top: 60px;
     padding-bottom: 40px;
   }
   @include mq(tab) {
-    padding-top: 68px;
     padding-bottom: 60px;
-  }
-  @include mq(desc) {
-    padding-top: 37px;
   }
 }
 
 .hero-container {
+  @include mq(mob-only) {
+    text-align: center;
+  }
   @include mq(tab) {
     display: flex;
   }
 }
 
-.hero-wraper {
+.hero-wrapper {
   @include mq(tab-only) {
     margin-right: 40px;
   }
@@ -38,6 +37,7 @@
     line-height: 1.91;
   }
   @include mq(tab-only) {
+    margin-top: 52px;
     font-size: 26px;
     line-height: 1.62;
   }
@@ -53,7 +53,10 @@
   color: var(--main-text-color);
   opacity: 0.8;
 
-  @include mq(mob) {
+  @include mq(mob-only) {
+    display: none;
+  }
+  @include mq(tab) {
     font-size: 14px;
     line-height: 2;
   }
@@ -69,10 +72,13 @@
   @include mq(tab) {
     width: 326px;
   }
+  @include mq(desc) {
+    width: 520px;
+  }
 
-  width: 520px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hero-button {
@@ -88,7 +94,7 @@
     height: 40px;
     width: 40px;
   }
-
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 700;
 
   border: 0;
@@ -102,8 +108,68 @@
 .hero-button:hover,
 .hero-button:focus {
   color: var(--primary-color);
+  cursor: pointer;
+}
+// ___________________________________________
+
+.hero-wrapper-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mq(tab) {
+    display: none;
+  }
+}
+.hero-label-mob {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: var(--main-text-color);
+  opacity: 0.8;
+  margin-top: 28px;
+  margin-bottom: 34px;
+
+  @include mq(tab) {
+    display: none;
+  }
 }
 
+.hero-select-mob {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 93px;
+  height: 34px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  border-color: var(--primary-color);
+  @include mq(tab) {
+    display: none;
+  }
+}
+
+.hero-select-mob:hover,
+.hero-select-mob:focus {
+  background-color: var(--primary-color);
+  color: white;
+
+  @include mq(tab) {
+    display: none;
+  }
+}
+
+.hero-option-mob {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  color: var(--secondary-text-color);
+  background-color: #ffffff;
+}
+
+// ____________________________________________
 .sorry {
   padding-top: 0;
 }
