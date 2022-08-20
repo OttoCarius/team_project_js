@@ -23,15 +23,9 @@ export function onFormSubmit(event) {
 export function createMarkup(arr) {
   list.innerHTML = '';
 
-  const markup = (cocktailList = arr.data.drinks.map(
-    ({ strDrink, strDrinkThumb }) => {
-      return `<li class='card-list'><h2 class="title-card">${strDrink}</h2>
-        <img src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' />
-        <button class='btn-learn-more' type='button'>Learn more</button>
-        <button class='btn-add-to-favorite'>Add to</button>
-      </li>`;
-    }
-  ));
+  const markup = arr.data.drinks.map(({ strDrink, strDrinkThumb }) => {
+    return `<li class='card-list'><div class="card-thumb"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' /><h2 class="title-card">${strDrink}</h2><div class="btn-wrapper"><button class='btn-cocktail btn-learn-more' type='button'>Learn more</button><button class='btn-cocktail btn-add-to-favorite' type='button'>Add to</button></div></div></li>`;
+  });
 
   refs.sectionSorry.classList.add('is-hidden');
   if (!arr.data.drinks) {
