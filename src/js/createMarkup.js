@@ -1,9 +1,12 @@
 import { Cocktail } from '../js/cocktailApiClass';
 import Notiflix from 'notiflix';
 import { refs } from './refs';
+import { onloadMoreClick } from './createMarkupCocktailModal';
 
 const list = document.querySelector('.modal-ingredients__list');
-const fetchCocktail = new Cocktail();
+list.addEventListener('click', onloadMoreClick);
+
+export const fetchCocktail = new Cocktail();
 const searchCocktails = document.querySelector('.js-search-cocktail');
 searchCocktails.addEventListener('submit', onFormSubmit);
 
@@ -27,8 +30,8 @@ export function createMarkup(arr) {
     refs.sectionSorry.classList.remove('is-hidden');
   } else {
     const cocktailList = arr.data.drinks
-      .map(({ strDrink, strDrinkThumb }) => {
-        return `<li class='card-list'><h2 class="title-card">${strDrink}</h2>
+      .map(({ strDrink, strDrinkThumb, idDrink }) => {
+        return `<li id="${idDrink}" class='card-list'><h2 class="title-card">${strDrink}</h2>
             <img src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' />
             <button class='btn-learn-more' type='button'>Learn more</button>
             <button class='btn-add-to-favorite'>Add to</button>

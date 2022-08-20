@@ -6,6 +6,7 @@ class Cocktail {
   constructor() {
     this.name = '';
     this.letter = '';
+    this.id = '';
     // this.title = '';
     // this.category = '';
     // this.img = '';
@@ -37,6 +38,14 @@ class Cocktail {
   async getResultsByLetter() {
     try {
       return await axios(`${BASE_URL}search.php?f=${this.letter}`);
+    } catch (error) {
+      alert(error);
+    }
+  }
+
+  async getResultsById(id) {
+    try {
+      return await axios(`${BASE_URL}lookup.php?i=${id}`);
     } catch (error) {
       alert(error);
     }
