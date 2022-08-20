@@ -1,0 +1,179 @@
+.ingredients {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  // background-color: #000000;
+
+  @include mq(tab) {
+    padding-bottom: 141px;
+  }
+
+  @include mq(desc) {
+    padding-top: 68px;
+    padding-bottom: 395px;
+  }
+}
+
+.title-ing {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.91;
+  text-align: center;
+  color: #202025;
+  margin-bottom: 60px;
+
+  @include mq(tab) {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+    margin-bottom: 78px;
+  }
+
+  @include mq(desc) {
+    font-size: 48px;
+    line-height: 1.5;
+    margin-bottom: 43px;
+  }
+}
+
+.list-ing__item {
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #fd5103;
+
+  @include mq(desc) {
+    padding: 28px;
+  }
+}
+
+.list-ing__title {
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.62;
+  color: #202025;
+  margin: 0;
+
+  @include mq(tab) {
+    font-size: 28px;
+    line-height: 1.18;
+  }
+
+  @include mq(desc) {
+    font-size: 32px;
+    line-height: 1.19;
+    color: #202025;
+  }
+}
+
+.list-ing__name {
+  margin-top: 20px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #000000;
+
+  @include mq(tab) {
+    font-size: 16px;
+    color: #5f6775;
+    margin-top: 28px;
+  }
+}
+
+.list-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+
+  @include mq(tab) {
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+}
+
+.btn-modal,
+.btn-remove {
+  display: block;
+  padding: 8px 16px;
+  border: 1px solid #fd5103;
+  border-radius: 4px;
+}
+
+.btn-modal {
+  background-color: #fe7031;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+
+  @include mq(tab) {
+    font-size: 20px;
+    line-height: 1.2;
+    padding: 12px 27px;
+  }
+
+  @include mq(desc) {
+    padding: 12px 38px;
+  }
+}
+
+.btn-remove {
+  background-color: #ffffff;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.02em;
+  color: #fd5103;
+
+  @include mq(tab) {
+    font-size: 20px;
+    line-height: 1.2;
+    padding: 12px 10px;
+  }
+
+  @include mq(desc) {
+    padding: 12px 22.5px 12px 18px;
+  }
+}
+
+.btn-modal:hover,
+.btn-modal:focus {
+  background-color: #fd5103;
+}
+
+.btn-remove:hover,
+.btn-remove:focus {
+  background-color: #f5f5f5;
+}
+
+.fav__icon {
+  fill: none;
+  border-color: white;
+  align-items: center;
+  width: 16px;
+  height: 14px;
+  vertical-align: middle;
+  margin-left: 8px;
+
+  @include mq(tab) {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include mq(desc) {
+    width: 21px;
+    height: 19px;
+  }
+}
+
+.fav__icon:hover {
+  fill: #fd5103;
+  background-color: #fd5103;
+}
