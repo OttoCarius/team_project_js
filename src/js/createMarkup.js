@@ -2,7 +2,7 @@ import { Cocktail } from '../js/cocktailApiClass';
 import Notiflix from 'notiflix';
 import { refs } from './refs';
 
-const list = document.querySelector('.modal-ingredients__list');
+const list = document.querySelector('.modal-ingredients_list');
 const fetchCocktail = new Cocktail();
 const searchCocktails = document.querySelector('.js-search-cocktail');
 searchCocktails.addEventListener('submit', onFormSubmit);
@@ -23,8 +23,8 @@ export function onFormSubmit(event) {
 export function createMarkup(arr) {
   list.innerHTML = '';
 
-  const markup = arr.data.drinks.map(({ strDrink, strDrinkThumb }) => {
-    return `<li class='card-list'><div class="card-thumb"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' /><h2 class="title-card">${strDrink}</h2><div class="btn-wrapper"><button class='btn-cocktail btn-learn-more' type='button'>Learn more</button><button class='btn-cocktail btn-add-to-favorite' type='button'>Add to</button></div></div></li>`;
+  const markup = arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
+    return `<li id="${idDrink}" class='card-list'><div class="card-thumb"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2><div class="btn-wrapper"><button class='btn-cocktail btn-learn-more' type='button'>Learn more</button><button class='btn-cocktail btn-add-to-favorite' type='button'>Add to</button></div></div></li>`;
   });
 
   refs.sectionSorry.classList.add('is-hidden');
