@@ -13,19 +13,6 @@ class Cocktail {
   }
 
   async getResults() {
-    // try {
-    //   const res = await axios(`${BASE_URL}search.php?s=${this.name}`);
-    //   const drinksObj = res.data.drinks[0];
-    //   this.title = drinksObj.strDrink;
-    //   this.category = drinksObj.strCategory;
-    //   this.img = drinksObj.strDrinkThumb;
-    //   this.ingredients = [];
-
-    //   for (let key in drinksObj) {
-    //     if (key.includes('strIngredient') && drinksObj[key] !== null) {
-    //       this.ingredients.push(drinksObj[key]);
-    //     }
-    //   }
     try {
       return await axios(`${BASE_URL}search.php?s=${this.name}`);
     } catch (error) {
@@ -48,6 +35,14 @@ class Cocktail {
       alert(error);
     }
   }
+
+  // async getResultsRandom() {
+  //   try {
+  //     return await axios(`${BASE_URL}random.php`);
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // }
 
   async getResultsRandom() {
     try {
