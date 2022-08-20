@@ -11,7 +11,6 @@ import {
 } from './js/hero';
 import './js/createMarkup.js';
 
-import './js/cardByLetter.js';
 // import { onloadMoreClick } from './js/createMarkupCocktailModal';
 
 // import './js/cardByLetter.js';
