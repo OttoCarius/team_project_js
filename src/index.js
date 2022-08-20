@@ -11,12 +11,15 @@ import {
 } from './js/hero';
 import './js/createMarkup.js';
 
+// import { onloadMoreClick } from './js/createMarkupCocktailModal';
+
 // import './js/cardByLetter.js';
 
 import './js/header.js';
 
 refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
+// refs.loadMoreBtn.addEventListener('click', onloadMoreClick);
 
 renderMarkup(refs.heroList, markupHeroLetters);
 

@@ -6,6 +6,7 @@ class Cocktail {
   constructor() {
     this.name = '';
     this.letter = '';
+    // this.id = '';
     // this.title = '';
     // this.category = '';
     // this.img = '';
@@ -28,9 +29,9 @@ class Cocktail {
     }
   }
 
-  async getResultsRandom() {
+  async getResultsById(id) {
     try {
-      return await axios(`${BASE_URL}random.php`);
+      return await axios(`${BASE_URL}lookup.php?i=${id}`);
     } catch (error) {
       alert(error);
     }
