@@ -20,7 +20,7 @@
   font-size: 22px;
   line-height: 1.91;
   text-align: center;
-  color: #202025;
+  color: var(--main-text-color);
   margin-bottom: 60px;
 
   @include mq(tab) {
@@ -40,7 +40,7 @@
 .list-ing__item {
   padding: 20px;
   border-radius: 4px;
-  border: 1px solid #fd5103;
+  border: 1px solid var(--primary-color);
 
   @include mq(desc) {
     padding: 28px;
@@ -52,7 +52,7 @@
   font-weight: 900;
   font-size: 26px;
   line-height: 1.62;
-  color: #202025;
+  color: var(--main-text-color);
   margin: 0;
 
   @include mq(tab) {
@@ -63,7 +63,7 @@
   @include mq(desc) {
     font-size: 32px;
     line-height: 1.19;
-    color: #202025;
+    color: var(--main-text-color);
   }
 }
 
@@ -74,11 +74,11 @@
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--main-text-color);
 
   @include mq(tab) {
     font-size: 16px;
-    color: #5f6775;
+    color: var(--secondary-text-color);
     margin-top: 28px;
   }
 }
@@ -98,19 +98,19 @@
 .btn-remove {
   display: block;
   padding: 8px 16px;
-  border: 1px solid #fd5103;
+  border: 1px solid var(--primary-color);
   border-radius: 4px;
 }
 
 .btn-modal {
-  background-color: #fe7031;
+  background-color: var(--button-bg-color);
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #ffffff;
+  color: var(--button-text-color);
 
   @include mq(tab) {
     font-size: 20px;
@@ -124,13 +124,13 @@
 }
 
 .btn-remove {
-  background-color: #ffffff;
+  background-color: var(--button-text-color);
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.02em;
-  color: #fd5103;
+  color: var(--button-bg-color);
 
   @include mq(tab) {
     font-size: 20px;
@@ -145,17 +145,17 @@
 
 .btn-modal:hover,
 .btn-modal:focus {
-  background-color: #fd5103;
+  background-color: var(--button-bg-color);
 }
 
 .btn-remove:hover,
 .btn-remove:focus {
-  background-color: #f5f5f5;
+  background-color: var(--main-bg-color);
 }
 
 .fav__icon {
   fill: none;
-  border-color: white;
+  border-color: var(--main-bg-color);
   align-items: center;
   width: 16px;
   height: 14px;
@@ -174,6 +174,6 @@
 }
 
 .fav__icon:hover {
-  fill: #fd5103;
-  background-color: #fd5103;
+  fill: var(--primary-color);
+  background-color: var(--primary-color);
 }
