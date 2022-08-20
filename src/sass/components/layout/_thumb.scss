@@ -34,8 +34,7 @@
     margin-right: 0;
   }
 }
-.card-thumb {
-}
+
 .title-card {
   display: block;
   margin: 0;
@@ -85,6 +84,7 @@
   background-color: var(--primary-color);
   color: var(--button-text-color);
   padding: 12px 38px;
+  border: none;
 }
 .btn-add-to-favorite {
   position: relative;
