@@ -166,7 +166,7 @@
 .hero-select-mob:hover,
 .hero-select-mob:focus {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--button-text-color);
 
   @include mq(tab) {
     display: none;
@@ -180,7 +180,7 @@
   display: flex;
   align-items: center;
   color: var(--secondary-text-color);
-  background-color: #ffffff;
+  background-color: var(--button-text-color);
 }
 
 // ____________________________________________
