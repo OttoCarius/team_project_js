@@ -1,46 +1,15 @@
-import { Cocktail } from '../js/cocktailApiClass';
+import { fetchCocktail } from '../index';
+import {
+  createRandomMarkup,
+  renderMarkup,
+  filterQuantityItems,
+} from './markup';
+import { refs } from './refs';
 
-const list = document.querySelector('.modal-ingredients__list');
-const randomCocktail = new Cocktail();
+export async function createAndRenderRandomMarkup() {
+  const arr = await fetchCocktail.getResultsRandom();
 
-export function randomCocktailMarkup() {
-  randomCocktail.getResultsRandom().then(createRandomMarkup);
-}
-
-export function createRandomMarkup(arr) {
-  // const cocktailList = arr
-  //   .map(item => {
-  //     const { strDrink, strDrinkThumb } = item.data.drinks[0];
-  //     return `<li class='card-list'><h2 class="title-card">${strDrink}</h2><img src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' />
-  //     <button class='btn-learn-more' type='button'>Learn more</button>
-  //     <button class='btn-add-to-favorite'>Add to</button></li>`;
-  //   })
-  //   .join('');
-  // list.insertAdjacentHTML('beforeend', cocktailList);
-
-  list.innerHTML = '';
-
-  const markupRandom = arr.map(item => {
-    const { strDrink, strDrinkThumb } = item.data.drinks[0];
-    return `<li class='card-list'><div class="card-thumb">
-    <img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' heigth='395' /><h2 class="title-card">${strDrink}</h2>
-    <div class="btn-wrapper"><button class='btn-cocktail btn-learn-more' type='button'>Learn more</button><button class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">
-    <svg class="favourite-svg" width="21px" height="19px">
-    <use href="../images/empty-heart.svg"></use>
-  </svg>Add to</button></div></div></li>`;
-  });
-
-  if (window.screen.width < 768) {
-    const cocktailList = markupRandom.filter((_, index) => index < 3).join('');
-    list.innerHTML = cocktailList;
-    return cocktailList;
-  } else if (window.screen.width < 1280) {
-    const cocktailList = markupRandom.filter((_, index) => index < 6).join('');
-    list.innerHTML = cocktailList;
-    return cocktailList;
-  } else {
-    const cocktailList = markupRandom.filter((_, index) => index < 9).join('');
-    list.innerHTML = cocktailList;
-    return cocktailList;
-  }
+  const markup = createRandomMarkup(arr);
+  const drinks = filterQuantityItems(markup);
+  renderMarkup(refs.listCocktail, drinks);
 }

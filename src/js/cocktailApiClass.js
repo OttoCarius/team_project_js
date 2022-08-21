@@ -1,16 +1,10 @@
 import axios from 'axios';
-
-const BASE_URL = 'https://www.thecocktaildb.com/api/json/v1/1/';
+import { BASE_URL } from './variables';
 
 class Cocktail {
   constructor() {
     this.name = '';
     this.letter = '';
-    // this.id = '';
-    // this.title = '';
-    // this.category = '';
-    // this.img = '';
-    // this.ingredients = '';
   }
 
   async getResults() {
@@ -36,14 +30,6 @@ class Cocktail {
       alert(error);
     }
   }
-
-  // async getResultsRandom() {
-  //   try {
-  //     return await axios(`${BASE_URL}random.php`);
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // }
 
   async getResultsRandom() {
     try {

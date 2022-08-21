@@ -1,27 +1,28 @@
+import { Cocktail } from './js/cocktailApiClass';
 import { refs } from './js/refs';
-
-import { createMarkup } from './js/createMarkup.js';
-import { randomCocktailMarkup } from './js/randomCocktail';
+import { onFormSubmit } from './js/searchForm';
+import { createAndRenderRandomMarkup } from './js/randomCocktail';
 import {
-  renderMarkup,
-  markupHeroLetters,
   onLetterClick,
   onSelectChange,
   markupHeroLettersMobile,
+  markupHeroLetters,
 } from './js/hero';
-import './js/createMarkup.js';
+import { renderMarkup } from './js/markup';
+import { onloadMoreClick } from './js/createMarkupCocktailModal';
 
-// import { onloadMoreClick } from './js/createMarkupCocktailModal';
+//Const
+export const fetchCocktail = new Cocktail();
 
-// import './js/cardByLetter.js';
+//Run
+createAndRenderRandomMarkup();
+renderMarkup(refs.heroList, markupHeroLetters);
+renderMarkup(refs.searchSelect, markupHeroLettersMobile);
 
-import './js/header.js';
-
+//Listener
+refs.searchCocktails.addEventListener('submit', onFormSubmit);
 refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
-// refs.loadMoreBtn.addEventListener('click', onloadMoreClick);
+refs.listCocktail.addEventListener('click', onloadMoreClick);
 
-renderMarkup(refs.heroList, markupHeroLetters);
-
-randomCocktailMarkup();
-renderMarkup(refs.searchSelect, markupHeroLettersMobile);
+//Functions

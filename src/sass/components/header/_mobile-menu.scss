@@ -9,7 +9,7 @@
   overflow-y: scroll;
   z-index: 2;
 
-  background-color: var(--main-bg-color);
+  background-color: #fcfcfc;
   @include mq(desc) {
     display: none;
   }
@@ -58,7 +58,7 @@
 
   &:hover,
   &:focus {
-    color: var(--primary-color);
+    color: #fd5103;
   }
   & + & {
     margin-top: 32px;

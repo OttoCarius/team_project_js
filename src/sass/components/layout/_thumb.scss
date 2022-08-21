@@ -9,6 +9,9 @@
     padding-bottom: 60px;
   }
 }
+.cocktail-section.is-hidden {
+  display: none;
+}
 
 .cocktail-container {
   @include mq(mob-only) {

@@ -1,5 +1,7 @@
-import { Cocktail } from '../js/cocktailApiClass';
-import { createMarkup } from './createMarkup';
+import { createMarkup, renderMarkup, filterQuantityItems } from './markup';
+import { fetchCocktail } from '../index';
+import { refs } from './refs';
+
 const letters = [
   'a',
   'b',
@@ -59,10 +61,6 @@ function createHeroMarkupMobile(items) {
 export const markupHeroLettersMobile = createHeroMarkupMobile(letters);
 export const markupHeroLetters = createHeroMarkup(letters);
 
-export function renderMarkup(element, markup) {
-  element.insertAdjacentHTML('beforeend', markup);
-}
-
 export function onLetterClick(e) {
   if (e.target.tagName != 'BUTTON') return;
   const letter = e.target.dataset.letter;
@@ -74,8 +72,10 @@ export function onSelectChange(e) {
   renderMarkupByCheckedLetter(letter);
 }
 
-function renderMarkupByCheckedLetter(letter) {
-  const cocktailByLetter = new Cocktail();
-  cocktailByLetter.letter = letter;
-  cocktailByLetter.getResultsByLetter().then(createMarkup);
+async function renderMarkupByCheckedLetter(letter) {
+  fetchCocktail.letter = letter;
+  const arr = await fetchCocktail.getResultsByLetter();
+  const markup = createMarkup(arr);
+  const drinks = filterQuantityItems(markup);
+  renderMarkup(refs.listCocktail, drinks);
 }
