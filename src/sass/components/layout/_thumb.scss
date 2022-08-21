@@ -36,14 +36,27 @@
   &:nth-child(3n) {
     margin-right: 0;
   }
+
+  @include mq(tab-only) {
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+    &:nth-child(3n) {
+      margin-right: 32px;
+    }
+  }
+
+  @include mq(mob-only) {
+    width: 280px;
+  }
 }
 
 .title-card {
   display: block;
   margin: 0;
   margin-bottom: 27px;
-  padding: 0 28px;
-  //   padding-right: 28px;
+  padding: 0;
+  // padding: 0 28px;
   text-align: center;
   color: var(--main-text-color);
   text-align: center;
@@ -51,6 +64,15 @@
   font-weight: 900;
   line-height: 1.17;
   font-family: var(--secondary-font);
+
+  @include mq(tab-only) {
+    max-width: 335px;
+  }
+
+  @include mq(mob-only) {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
 }
 
 .modal-ingredients__list {
@@ -63,11 +85,26 @@
   font-weight: 700;
   line-height: 1.5;
   text-align: center;
+
+  @include mq(tab) {
+    font-size: 32px;
+    margin-bottom: 56px;
+  }
 }
 
 .img-cocktail {
   display: block;
   margin-bottom: 20px;
+
+  @include mq(tab-only) {
+    width: 335px;
+  }
+
+  @include mq(mob-only) {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 48px;
+  }
 }
 .btn-wrapper {
   display: flex;
@@ -76,26 +113,55 @@
   margin-bottom: 28px;
 }
 
-.btn-cocktail {
+.btn-cocktail,
+.load-more {
   cursor: pointer;
   font-family: var(--secondary-font);
   font-size: 20px;
   line-height: 1.2;
   border-radius: 4px;
+
+  @include mq(mob-only) {
+    font-size: 24px;
+    line-height: 1.7;
+  }
 }
-.btn-learn-more {
+
+.btn-learn-more,
+.load-more {
+  font-weight: 400;
   background-color: var(--primary-color);
   color: var(--button-text-color);
   padding: 12px 38px;
   border: none;
+
+  @include mq(tab) {
+    padding: 12px 27px;
+  }
+  @include mq(mob-only) {
+    padding: 7px 17px 8px 16px;
+    font-size: 14px;
+  }
 }
 .btn-add-to-favorite {
+  font-weight: 400;
   position: relative;
-  padding: 12px 35px 12px 24px;
+  // padding: 0;
+  padding: 12px 40px 12px 0px;
   width: 141px;
   border: 1px solid var(--primary-color);
   background-color: var(--main-bg-color);
   color: var(--primary-color);
+
+  @include mq(tab) {
+    padding: 12px 45px 12px 13px;
+  }
+  @include mq(mob-only) {
+    padding: 5px 35px 5px 7px;
+    font-size: 14px;
+    line-height: 1.7;
+    width: 110px;
+  }
 }
 .favourite-svg {
   position: absolute;
@@ -107,4 +173,40 @@
   height: 19px;
   pointer-events: none;
   fill: red;
+  background-color: red;
 }
+
+.load-more {
+  display: none;
+}
+.toggle {
+  fill: var(--primary-color);
+}
+.svg-use {
+  background-color: red;
+}
+
+// @include mq(mob) {
+//   padding-bottom: 40px;
+// }
+// @include mq(tab) {
+//   padding-bottom: 60px;
+// }
+// }
+
+// .hero-container {
+// @include mq(mob-only) {
+//   text-align: center;
+// }
+// @include mq(tab) {
+//   display: flex;
+// }
+// }
+
+// .hero-wrapper {
+// @include mq(tab-only) {
+//   margin-right: 40px;
+// }
+// @include mq(desc) {
+//   margin-right: 60px;
+// }
