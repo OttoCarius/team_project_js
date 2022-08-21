@@ -22,22 +22,36 @@
 .hero-wrapper {
   @include mq(tab-only) {
     margin-right: 40px;
+    padding-top: 132px;
+    padding-bottom: 134px;
   }
   @include mq(desc) {
     margin-right: 60px;
+    padding-top: 97px;
+    padding-bottom: 132px;
   }
 }
+
+.hero-img {
+  @include mq(tab) {
+    padding-top: 68px;
+  }
+  @include mq(desc) {
+    padding-top: 35px;
+  }
+}
+
 .hero-title {
   margin-bottom: 40px;
   font-weight: 600;
   color: var(--primary-color);
 
   @include mq(mob-only) {
+    padding-top: 60px;
     font-size: 22px;
     line-height: 1.91;
   }
   @include mq(tab-only) {
-    margin-top: 52px;
     font-size: 26px;
     line-height: 1.62;
   }
