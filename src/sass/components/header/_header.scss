@@ -45,6 +45,7 @@
 
 .navigation-wrapper {
   display: flex;
+  color: var(--main-text-color);
 }
 
 .features-wrapper {
@@ -95,6 +96,8 @@
   border-radius: 4px;
   padding: 8px 0 8px 48px;
   background: transparent;
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
 }
 
 .checkbox__wrapper {
@@ -150,11 +153,11 @@
   position: absolute;
   &:checked + .label .ball {
     transform: translateX(20px);
-    background-color: var(--main-bg-color);
+    background-color: var(--main-text-color);
   }
   &:checked + .label {
     background-color: var(--primary-color);
-    border: 1px solid var(--main-bg-color);
+    border: 1px solid var(--main-text-color);
   }
   // &:hover + .label,
   // &:focus + .label {
@@ -164,10 +167,10 @@
 
 .ball {
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   background-color: var(--primary-color);
-  top: 1px;
+
   left: 1px;
   border-radius: 50%;
   transition-duration: 250ms;
