@@ -192,6 +192,7 @@
 }
 
 .sorry-title {
+  color: var(--main-text-color);
   @include mq(mob-only) {
     font-weight: 600;
     font-size: 22px;
