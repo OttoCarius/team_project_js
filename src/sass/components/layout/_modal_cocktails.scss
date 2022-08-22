@@ -27,10 +27,8 @@
   max-height: 100%;
   background-color: var(--main-bg-color);
   border-radius: 4px;
-  overflow: hidden;
-  //   overflow-y: scroll;
+  overflow: auto;
   width: 822px;
-  // background-color: var(--main-bg-color);
   border: 1px solid var(--primary-color);
 }
 
@@ -95,14 +93,13 @@
 .cocktails-modal-btn {
   margin-bottom: 28px;
   margin-right: 28px;
-  float: right;
   display: flex;
+  margin-left: auto;
+
   flex-direction: row;
   align-items: flex-start;
   padding: 12px 24px;
   gap: 10px;
-  // width: 185px;
-  // height: 48px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   border: inherit;
   background: var(--primary-color);
@@ -118,8 +115,8 @@
 .cocktails-modal-btn:hover,
 .cocktails-modal-btn:focus {
   cursor: pointer;
-  // background-color: var(--primary-color);
 }
+
 .modal-cocktail-close-btn {
   width: 32px;
   height: 32px;
@@ -136,20 +133,15 @@
   cursor: pointer;
 }
 
-// .modal-cocktail-close-btn::after {
-//   width: 32px;
-//   height: 32px;
-//   display: inline-block;
-//   content: '';
-//   background-image: url(../images/close-modal-cocktail.svg);
-//   background-repeat: no-repeat;
-//   background-size: contain;
-// }
-// .icon-modal-cocktail {
-//   // fill: #000917;
-//   // fill: #202025;
-//   fill: red;
-// }
+.icon-modal-cocktail {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--main-text-color);
+}
+
+.modal-cocktail-close-btn:hover .icon-modal-cocktail,
+.modal-cocktail-close-btn:focus .icon-modal-cocktail {
+  fill: var(--primary-color);
+}
 .cocktail-ingredient-btn {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: var(--primary-font);

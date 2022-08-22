@@ -24,6 +24,7 @@ function openModalIngredient(ingredient) {
   toggleModal();
   createModalIngredientMarkup(ingredient);
   const modalCloseBtn = document.querySelector('[data-modal-close-ingr]');
+  console.log(modalCloseBtn);
   modalCloseBtn.addEventListener('click', toggleModal);
 }
 
@@ -37,12 +38,15 @@ function createModalIngredientMarkup(ingredient) {
     ${strType === null ? 'Sorry, not specified' : strType}
   </h4>
 </div>
- <button type="button" class="modal-cocktail-close-btn" data-modal-close>
-     <svg class="icon-modal-cocktail" height="32" width="32">
+ <button type="button" class="modal-ingredients-close-btn" data-modal-close-ingr>
+     <svg class="icon-modal-ingredients" height="32" width="32">
     <use href="${iconsModal}#icon-close-modal-cocktail"></use>
   </svg>
   </button>
-  </div>
+</div>
+<div class="modal-ingredients-desc">
+
+  
 <p class="ingredients-modal-text">
   ${strDescription === null ? 'Sorry, not specified' : strDescription}
 </p>
@@ -59,12 +63,13 @@ function createModalIngredientMarkup(ingredient) {
   </li>
 </ul>
 <button
+id=${idIngredient}
   type="button"
   class="ingredients-modal-btn"
-  data-modal-close-ingr
+  
 >
   Add to favorite
-</button>`;
+</button></div>`;
   // console.log(markupModalIngredient);
   refs.modalIngredient.insertAdjacentHTML('beforeend', markupModalIngredient);
 }

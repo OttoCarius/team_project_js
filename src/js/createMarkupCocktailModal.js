@@ -49,7 +49,8 @@ function createMarkupCocktailForModalListIngredients(res) {
 
 function createMarkupCocktailModal(res) {
   refs.modalCocktail.innerHTML = '';
-  const { strDrinkThumb, strDrink, strInstructions } = res.data.drinks[0];
+  const { strDrinkThumb, strDrink, strInstructions, idDrink } =
+    res.data.drinks[0];
   const markupModalCocktail = /*html*/ `<div class="modal-cocktail-wrapper"><img
         class="modal-cocktail-img"
         src="${strDrinkThumb}"
@@ -72,7 +73,7 @@ function createMarkupCocktailModal(res) {
         <h3 class="instruction-name">Instractions:</h3>
         <p class="instruction-text">${strInstructions}</p>
       </div>
-      <button type="button" class="cocktails-modal-btn">
+      <button id="${idDrink}" type="button" class="cocktails-modal-btn">
         Add to favorite
       </button>
   `;
