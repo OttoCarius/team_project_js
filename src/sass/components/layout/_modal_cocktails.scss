@@ -28,8 +28,17 @@
   background-color: var(--main-bg-color);
   border-radius: 4px;
   overflow: auto;
-  width: 822px;
   border: 1px solid var(--primary-color);
+  @include mq(mob-only) {
+    max-width: 480px;
+    padding: 28px;
+  }
+  @include mq(tab-only) {
+    max-width: 822px;
+  }
+  @include mq(desc) {
+    width: 822px;
+  }
 }
 
 .modal-cocktail-wrapper {
@@ -37,12 +46,20 @@
   gap: 32px;
   margin-left: auto;
   margin-bottom: 28px;
+  @include mq(mob-only) {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
 }
+
 .modal-cocktail-img {
   border-radius: 4px;
 }
 .cocktail-desc {
   margin-top: 40px;
+  @include mq(mob-only) {
+    margin-top: 0;
+  }
 }
 .cocktail-desc-name {
   font-family: var(--secondary-font);
@@ -51,6 +68,9 @@
   line-height: 1.19;
   color: var(--main-text-color);
   margin-bottom: 28px;
+}
+.cocktail-desc-list {
+  margin-bottom: 32px;
 }
 
 .cocktail-desc-ingredients {
@@ -73,6 +93,10 @@
 .cocktail-instruction {
   margin-left: 28px;
   width: 615px;
+  @include mq(mob-only) {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 .instruction-name {
   font-family: var(--primary-font);
@@ -110,6 +134,9 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--button-text-color);
+  @include mq(mob-only) {
+    margin: 0 auto;
+  }
 }
 
 .cocktails-modal-btn:hover,
@@ -127,6 +154,10 @@
   display: flex;
   justify-content: center;
   background-color: inherit;
+  @include mq(mob-only) {
+    margin-top: 0;
+    margin-right: 0;
+  }
 }
 .modal-cocktail-close-btn:hover,
 .modal-cocktail-close-btn:focus {

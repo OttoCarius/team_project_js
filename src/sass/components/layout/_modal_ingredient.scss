@@ -19,8 +19,15 @@
   background-color: var(--main-bg-color);
   border-radius: 4px;
   overflow: auto;
-  width: 715px;
+
   border: 1px solid var(--primary-color);
+  @include mq(mob-only) {
+    width: 100%;
+    max-width: 480px;
+  }
+  @include mq(tab) {
+    width: 715px;
+  }
 }
 
 .ingr-modal-wrapper {
@@ -98,6 +105,9 @@
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--button-text-color);
+  @include mq(mob-only) {
+    margin: 0 auto;
+  }
 }
 
 .ingredients-modal-btn:hover,
