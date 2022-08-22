@@ -18,9 +18,10 @@ export async function storageCocktailByName() {
 }
 
 export function onLoadMore() {
+  refs.loadMore.classList.add('is-hidden');
   console.log('click on the button');
   const savedCocktails = localStorage.getItem(STORAGE_KEY);
   const parsedCocktails = JSON.parse(savedCocktails);
   const markup = createMarkup(parsedCocktails);
-  renderMarkup(refs.listCocktail, markup);
+  renderMarkup(refs.listCocktail, markup.join(''));
 }
