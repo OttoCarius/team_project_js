@@ -1,7 +1,7 @@
 import { createMarkup, renderMarkup, filterQuantityItems } from './markup';
 import { fetchCocktail } from '../index';
 import { refs } from './refs';
-//
+import Notiflix from 'notiflix';
 import { storageCocktailByLetter } from './storageCocktails';
 
 const letters = [
@@ -75,10 +75,14 @@ export function onSelectChange(e) {
 }
 
 async function renderMarkupByCheckedLetter(letter) {
-  fetchCocktail.letter = letter;
-  const arr = await fetchCocktail.getResultsByLetter();
-  const markup = createMarkup(arr);
-  const drinks = filterQuantityItems(markup);
-  renderMarkup(refs.listCocktail, drinks);
-  storageCocktailByLetter();
+  try {
+    fetchCocktail.letter = letter;
+    const arr = await fetchCocktail.getResultsByLetter();
+    const markup = createMarkup(arr);
+    const drinks = filterQuantityItems(markup);
+    renderMarkup(refs.listCocktail, drinks);
+    storageCocktailByLetter();
+  } catch (error) {
+    return Notiflix.Notify.failure('Error!', error.message);
+  }
 }
