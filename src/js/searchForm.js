@@ -2,6 +2,7 @@ import { fetchCocktail } from '../index';
 import Notiflix from 'notiflix';
 import { createMarkup, renderMarkup, filterQuantityItems } from './markup';
 import { refs } from './refs';
+import { storageCocktailByName } from './storageCocktails';
 
 export async function onFormSubmit(event) {
   try {
@@ -15,6 +16,8 @@ export async function onFormSubmit(event) {
     const markup = createMarkup(arr);
     const drinks = filterQuantityItems(markup);
     renderMarkup(refs.listCocktail, drinks);
+    storageCocktailByName();
+    event.target.elements.query.value = '';
   } catch (error) {
     return Notiflix.Notify.failure('Error!', error.message);
   }
