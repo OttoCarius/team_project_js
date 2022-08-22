@@ -1,6 +1,5 @@
 import { refs } from './refs';
 import { onLoadMore } from './storageCocktails';
-import * as emptyheart from '../images/empty-heart.svg';
 
 //Functions
 export function createMarkup(arr) {
@@ -13,7 +12,7 @@ export function createMarkup(arr) {
     return;
   }
   return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    return /*html*/ `<li  class='card-list'><div class="card-thumb"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2><div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">Add to</button></div></div></li>`;
+    return /*html*/ `<li class='card-list'><div class="card-thumb"><div class="dist"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2></div><div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">Add to</button></div></div></li>`;
   });
 }
 
@@ -41,7 +40,7 @@ export function filterQuantityItems(markup) {
     if (markup.length > 9) {
       console.log('more then 9');
       refs.loadMore.style.display = 'block';
-      onLoadMore();
+      // onLoadMore();
     }
     return markup.filter((_, index) => index < 9).join('');
   }
