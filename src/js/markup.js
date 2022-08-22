@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import { onLoadMore } from './storageCocktails';
+import * as emptyheart from '../images/empty-heart.svg';
 
 //Functions
 export function createMarkup(arr) {
@@ -12,10 +13,7 @@ export function createMarkup(arr) {
     return;
   }
   return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    return /*html*/ `<li  class='card-list'><div class="card-thumb"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2><div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">
-    <svg id="${idDrink}" class="favorite-svg" width="21px" height="19px">
-    <use class="svg-use" href="./images/empty-heart.svg"></use>
-  </svg>Add to</button></div></div></li>`;
+    return /*html*/ `<li  class='card-list'><div class="card-thumb"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2><div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">Add to</button></div></div></li>`;
   });
 }
 
@@ -55,9 +53,7 @@ export function createRandomMarkup(arr) {
     console.log('id', idDrink);
     return /*html*/ `<li  class='card-list'><div class="card-thumb">
     <img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2>
-    <div class="btn-wrapper" id="${idDrink}">   <button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">
-    <svg id="${idDrink}" class="favorite-svg" width="21px" height="19px">
-    <use class="svg-use" href="./images/empty-heart.svg"></use>
-  </svg>Add to</button></div></div></li>`;
+    <div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite' type='button' data-action="favourite">
+  Add to</button></div></div></li>`;
   });
 }

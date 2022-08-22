@@ -9,6 +9,10 @@
   "transformers": {
     "*.hbs": [
       "parcel-transformer-hbs"
+    ],
+    "js:*.svg": [
+      "...",
+      "@parcel/transformer-svg-react"
     ]
   }
 }

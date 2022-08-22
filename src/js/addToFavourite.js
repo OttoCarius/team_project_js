@@ -5,12 +5,19 @@ const dataCocktail = [];
 const FAVOURITE_KEY = 'storage-favourite';
 
 export function addToFavourite(e) {
-  if (e.target.dataset.action || e.target.nodeName === 'svg') {
+  e.target.classList.toggle('is-add');
+
+  if (e.target.dataset.action) {
     if (dataCocktail.includes(e.target.id)) {
-      return;
+      // console.log(dataCocktail);
+      // console.log(e.target.id);
+      const positionIndex = dataCocktail.indexOf(e.target.id);
+      // console.log(dataCocktail.indexOf(e.target.id));
+      dataCocktail.splice(positionIndex, 1);
+      // console.log(dataCocktail);
+      return localStorage.setItem(FAVOURITE_KEY, JSON.stringify(dataCocktail));
     }
 
-    // e.target.dataset.action.classList.toggle('toggle');
     dataCocktail.push(e.target.id);
     localStorage.setItem(FAVOURITE_KEY, JSON.stringify(dataCocktail));
   } else {
