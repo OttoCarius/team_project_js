@@ -87,13 +87,10 @@
   text-align: center;
   color: var(--main-text-color);
 
-
   @include mq(tab) {
     font-size: 32px;
     margin-bottom: 56px;
   }
-
-
 }
 
 .img-cocktail {
@@ -148,17 +145,29 @@
   }
 }
 .btn-add-to-favorite {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
   font-weight: 400;
-  position: relative;
-  // padding: 0;
-  padding: 12px 40px 12px 0px;
+  padding: 12px 21px 12px 24px;
   width: 141px;
   border: 1px solid var(--primary-color);
   background-color: var(--main-bg-color);
   color: var(--primary-color);
 
+  &::after {
+    width: 19px;
+    height: 21px;
+    display: inline-block;
+    content: '';
+    background-image: url(../images/heart2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
   @include mq(tab) {
-    padding: 12px 45px 12px 13px;
+    // padding: 12px 45px 12px 13px;
   }
   @include mq(mob-only) {
     padding: 5px 35px 5px 7px;
@@ -169,12 +178,11 @@
 }
 .favourite-svg {
   position: absolute;
-  fill: transparent;
   top: 50%;
   right: 15px;
   transform: translateY(-50%);
   width: 21px;
-  height: 19px;
+  // height: 19px;
   pointer-events: none;
   fill: red;
   background-color: red;
@@ -183,11 +191,10 @@
 .load-more {
   display: none;
 }
-.toggle {
-  fill: var(--primary-color);
-}
-.svg-use {
-  background-color: red;
+.is-add {
+  &::after {
+    background-image: url(../images/heart3.svg);
+  }
 }
 
 // @include mq(mob) {
