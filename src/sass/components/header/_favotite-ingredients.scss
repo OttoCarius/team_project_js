@@ -112,6 +112,7 @@
   text-align: center;
   letter-spacing: 0.02em;
   color: var(--button-text-color);
+  cursor: pointer;
 
   @include mq(tab) {
     font-size: 20px;
@@ -120,7 +121,7 @@
   }
 
   @include mq(desc) {
-    padding: 12px 38px;
+    padding: 12px 34px;
   }
 }
 
@@ -134,6 +135,13 @@
   background-color: var(--main-bg-color);
   color: var(--primary-color);
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 141px;
+  padding: 8px 16px;
+  cursor: pointer;
 
   @include mq(tab) {
     font-size: 20px;
@@ -146,6 +154,16 @@
     padding: 12px 22.5px 12px 18px;
     margin-left: 16px;
   }
+}
+.btn-remove::after {
+  width: 19px;
+  height: 21px;
+  display: inline-block;
+  content: '';
+  background-image: url(../images/heart-fav-ing.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 3px;
 }
 
 .btn-modal:hover,
