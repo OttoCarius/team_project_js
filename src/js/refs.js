@@ -7,4 +7,7 @@ export const refs = {
   listCocktail: document.querySelector('.modal-ingredients__list'),
   searchCocktails: document.querySelector('.js-search-cocktail'),
   cocktailSection: document.querySelector('.cocktail-section'),
+  //
+  loadMore: document.querySelector('.load-more'),
+  //
 };

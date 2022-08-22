@@ -1,6 +1,8 @@
 import { createMarkup, renderMarkup, filterQuantityItems } from './markup';
 import { fetchCocktail } from '../index';
 import { refs } from './refs';
+//
+import { storageCocktailByLetter } from './storageCocktails';
 
 const letters = [
   'a',
@@ -78,4 +80,5 @@ async function renderMarkupByCheckedLetter(letter) {
   const markup = createMarkup(arr);
   const drinks = filterQuantityItems(markup);
   renderMarkup(refs.listCocktail, drinks);
+  storageCocktailByLetter();
 }

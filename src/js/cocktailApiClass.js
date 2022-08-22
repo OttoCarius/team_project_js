@@ -5,6 +5,7 @@ class Cocktail {
   constructor() {
     this.name = '';
     this.letter = '';
+    this.id = '';
   }
 
   async getResults() {
