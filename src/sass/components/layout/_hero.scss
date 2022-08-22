@@ -22,22 +22,36 @@
 .hero-wrapper {
   @include mq(tab-only) {
     margin-right: 40px;
+    padding-top: 132px;
+    padding-bottom: 134px;
   }
   @include mq(desc) {
     margin-right: 60px;
+    padding-top: 97px;
+    padding-bottom: 132px;
   }
 }
+
+.hero-img {
+  @include mq(tab) {
+    padding-top: 68px;
+  }
+  @include mq(desc) {
+    padding-top: 35px;
+  }
+}
+
 .hero-title {
   margin-bottom: 40px;
   font-weight: 600;
   color: var(--primary-color);
 
   @include mq(mob-only) {
+    padding-top: 60px;
     font-size: 22px;
     line-height: 1.91;
   }
   @include mq(tab-only) {
-    margin-top: 52px;
     font-size: 26px;
     line-height: 1.62;
   }
@@ -152,7 +166,7 @@
 .hero-select-mob:hover,
 .hero-select-mob:focus {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--button-text-color);
 
   @include mq(tab) {
     display: none;
@@ -166,7 +180,7 @@
   display: flex;
   align-items: center;
   color: var(--secondary-text-color);
-  background-color: #ffffff;
+  background-color: var(--button-text-color);
 }
 
 // ____________________________________________
@@ -178,6 +192,7 @@
 }
 
 .sorry-title {
+  color: var(--main-text-color);
   @include mq(mob-only) {
     font-weight: 600;
     font-size: 22px;

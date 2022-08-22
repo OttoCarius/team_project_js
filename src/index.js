@@ -10,11 +10,14 @@ import {
 } from './js/hero';
 import { renderMarkup } from './js/markup';
 import { onloadMoreClick } from './js/createMarkupCocktailModal';
+
 import {
   storageCocktailByLetter,
   storageCocktailByName,
 } from './js/storageCocktails';
 import { addToFavourite } from './js/addToFavourite';
+
+import './js/header.js';
 
 //Const
 export const fetchCocktail = new Cocktail();

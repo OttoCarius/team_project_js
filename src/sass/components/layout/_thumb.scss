@@ -85,11 +85,15 @@
   font-weight: 700;
   line-height: 1.5;
   text-align: center;
+  color: var(--main-text-color);
+
 
   @include mq(tab) {
     font-size: 32px;
     margin-bottom: 56px;
   }
+
+
 }
 
 .img-cocktail {
