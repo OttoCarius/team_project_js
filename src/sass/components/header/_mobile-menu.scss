@@ -34,10 +34,12 @@
   align-items: center;
   margin-left: auto;
   padding: 0;
+  color: var(--secondary-text-color);
   border: none;
   background-color: transparent;
 }
 .mob-btn-close {
+  color: var(--main-text-color);
   position: absolute;
   top: 20px;
   right: 20px;
