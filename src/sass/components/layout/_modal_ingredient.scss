@@ -1,0 +1,104 @@
+.is-hidden.modal-ingredient {
+  pointer-events: none;
+  opacity: 0;
+  display: none;
+}
+
+.modal-cocktail.is-hidden .modal-ingredient {
+  transform: translate(-50%, -50%) scale(0);
+}
+.modal-ingredient {
+  padding: 28px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  background-color: var(--main-bg-color);
+  border-radius: 4px;
+  // overflow: hidden;
+  overflow-y: scroll;
+  width: 715px;
+  border: 1px solid var(--primary-color);
+}
+
+.ingr-modal-wrapper {
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.ingr-modal-wrapper::after {
+  position: absolute;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  border-radius: 1px;
+  background-color: var(--primary-color);
+}
+.ingredients-modal-title {
+  margin-bottom: 28px;
+  font-family: var(--secondary-font);
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.19;
+  color: var(--main-text-color);
+}
+.ingredients-modal-subtitle {
+  margin-bottom: 40px;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--main-text-color);
+}
+.ingredients-modal-text {
+  margin-bottom: 28px;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--black-text-color);
+}
+
+.ingredients-modal-list {
+  margin-bottom: 40px;
+}
+.ingredients-modal-item {
+  font-family: var(--primary-font);
+  font-size: 16px;
+  line-height: 1.62;
+  color: var(--main-text-color);
+}
+.ingredients-modal-btn {
+  margin-bottom: 28px;
+  margin-right: 28px;
+  // float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px 24px;
+  gap: 10px;
+  // width: 185px;
+  // height: 48px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: inherit;
+  background: var(--primary-color);
+  border-radius: 4px;
+  font-weight: 400;
+  font-family: var(--primary-font);
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--button-text-color);
+}
+
+.ingredients-modal-btn:hover,
+.ingredients-modal-btn:focus {
+  cursor: pointer;
+  // background-color: var(--primary-color);
+}

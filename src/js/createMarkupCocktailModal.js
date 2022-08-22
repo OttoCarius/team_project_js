@@ -1,16 +1,24 @@
 import { refs } from './refs';
 import { fetchCocktail } from '..';
+import Notiflix from 'notiflix';
+import { onIngredientClick } from './modal-ingredient';
+import * as iconsModal from '../images/icons-modal.svg';
 
 export async function onloadMoreClick(e) {
-  if (e.target.dataset.btn_more !== 'learn-more') return;
-  const id = e.target.parentNode.id;
-  const res = await fetchCocktail.getResultsById(id);
-  openModalCocktail(res);
+  try {
+    if (e.target.dataset.btn_more !== 'learn-more') return;
+    const id = e.target.parentNode.id;
+    const res = await fetchCocktail.getResultsById(id);
+    openModalCocktail(res);
+  } catch (error) {
+    return Notiflix.Notify.failure('Error!', error.message);
+  }
 }
 
 function openModalCocktail(res) {
   toggleModal();
   createMarkupCocktailModal(res);
+
   const cocktailModalIngredientsList = document.querySelector(
     '.cocktail-desc-list'
   );
@@ -18,6 +26,7 @@ function openModalCocktail(res) {
     createMarkupCocktailForModalListIngredients(res);
   cocktailModalIngredientsList.innerHTML = '';
   cocktailModalIngredientsList.innerHTML = markupIngredientsList;
+  cocktailModalIngredientsList.addEventListener('click', onIngredientClick);
   const modalCloseBtn = document.querySelector('[data-modal-close]');
   modalCloseBtn.addEventListener('click', toggleModal);
 }
@@ -25,6 +34,7 @@ function openModalCocktail(res) {
 function createMarkupCocktailForModalListIngredients(res) {
   const drink = res.data.drinks[0];
   const ingredients = [];
+
   for (let i = 1; i <= 15; i += 1) {
     let ingredient = drink['strIngredient' + i];
     if (!ingredient) break;
@@ -32,13 +42,12 @@ function createMarkupCocktailForModalListIngredients(res) {
   }
   return ingredients
     .map(ingredient => {
-      return /*html*/ `<li><button class="cocktail-ingredient-btn">${ingredient}</button></li>`;
+      return /*html*/ `<li><button data-btn_ingr="ingredient" data-ingredient_name="${ingredient}" class="cocktail-ingredient-btn">${ingredient}</button></li>`;
     })
     .join('');
 }
 
 function createMarkupCocktailModal(res) {
-  console.log(res);
   refs.modalCocktail.innerHTML = '';
   const { strDrinkThumb, strDrink, strInstructions } = res.data.drinks[0];
   const markupModalCocktail = /*html*/ `<div class="modal-cocktail-wrapper"><img
@@ -54,8 +63,8 @@ function createMarkupCocktailModal(res) {
         <ul class="cocktail-desc-list"></ul>
         </div>
         <button type="button" class="modal-cocktail-close-btn" data-modal-close>
-    <svg class="icon-modal-cocktail" height="18px" width="18px">
-    <use href="./images/icons-modal.svg#icon-close-modal-cocktail"></use>
+    <svg class="icon-modal-cocktail" height="32" width="32">
+    <use href="${iconsModal}#icon-close-modal-cocktail"></use>
   </svg>
   </button>
       </div>

@@ -11,7 +11,8 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}search.php?s=${this.name}`);
     } catch (error) {
-      alert(error);
+      // alert(error);
+      throw new Error(error);
     }
   }
 
@@ -19,7 +20,8 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}search.php?f=${this.letter}`);
     } catch (error) {
-      alert(error);
+      // alert(error);
+      throw new Error(error);
     }
   }
 
@@ -27,7 +29,8 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}lookup.php?i=${id}`);
     } catch (error) {
-      alert(error);
+      // alert(error);
+      throw new Error(error);
     }
   }
 
@@ -35,7 +38,7 @@ class Cocktail {
     try {
       let arr = [];
       for (let i = 0; i < 9; i += 1) {
-        const cocktail = axios(BASE_URL + 'random.php');
+        const cocktail = await axios(BASE_URL + 'random.php');
         arr.push(cocktail);
       }
 
@@ -54,6 +57,15 @@ class Cocktail {
 
   set query(newQuery) {
     this.name = newQuery;
+  }
+
+  async getIngredientByName(string) {
+    try {
+      return await axios(`${BASE_URL}/search.php?i=${string}`);
+    } catch (error) {
+      // alert(error);
+      throw new Error(error);
+    }
   }
 }
 
