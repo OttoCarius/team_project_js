@@ -12,5 +12,8 @@ export const refs = {
   cocktailSection: document.querySelector('.cocktail-section'),
   //
   loadMore: document.querySelector('.load-more'),
+  // addToFavouriteModal: document.querySelector('.cocktails-modal-btn'),
   //
+  listFavoriteCocktails: document.querySelector('.favorite-cocktails-list'),
+  listFavoriteIngredients: document.querySelector('.list-ing'),
 };

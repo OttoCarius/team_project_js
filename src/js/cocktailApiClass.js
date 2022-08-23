@@ -52,6 +52,14 @@ class Cocktail {
     }
   }
 
+  async ingredientsById(id) {
+    try {
+      return await axios(`${BASE_URL}lookup.php?iid=${id}`);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   get query() {
     return this.name;
   }

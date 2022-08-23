@@ -7,11 +7,11 @@ import {
 import { refs } from './refs';
 import Notiflix from 'notiflix';
 
-export async function createAndRenderRandomMarkup() {
+export async function createAndRenderRandomMarkup(data) {
   try {
     const arr = await fetchCocktail.getResultsRandom();
 
-    const markup = createRandomMarkup(arr);
+    const markup = createRandomMarkup(arr, data);
     const drinks = filterQuantityItems(markup);
     renderMarkup(refs.listCocktail, drinks);
   } catch (error) {

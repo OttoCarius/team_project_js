@@ -2,8 +2,8 @@ import { refs } from './refs';
 import { fetchCocktail } from '../index';
 import { createMarkup, renderMarkup } from './markup';
 import './header';
+import { STORAGE_KEY } from './variables';
 
-const STORAGE_KEY = 'storage-cocktails-list';
 refs.loadMore.addEventListener('click', onLoadMore);
 
 export async function storageCocktailByLetter() {

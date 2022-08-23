@@ -3,6 +3,11 @@ import { fetchCocktail } from '..';
 import Notiflix from 'notiflix';
 import { onIngredientClick } from './modal-ingredient';
 import * as iconsModal from '../images/icons-modal.svg';
+import { addToFavouriteModal } from './addToFavourite';
+import { dataCocktail } from './addToFavourite';
+import data from './object';
+
+import { saveData, toggleIcon } from './addToFavourite';
 
 export async function onloadMoreClick(e) {
   try {
@@ -10,14 +15,15 @@ export async function onloadMoreClick(e) {
     const id = e.target.parentNode.id;
     const res = await fetchCocktail.getResultsById(id);
     openModalCocktail(res);
+    data.cocktails;
   } catch (error) {
     return Notiflix.Notify.failure('Error!', error.message);
   }
 }
 
-function openModalCocktail(res) {
+export function openModalCocktail(res) {
   toggleModal();
-  createMarkupCocktailModal(res);
+  createMarkupCocktailModal(res, data);
 
   const cocktailModalIngredientsList = document.querySelector(
     '.cocktail-desc-list'
@@ -29,6 +35,10 @@ function openModalCocktail(res) {
   cocktailModalIngredientsList.addEventListener('click', onIngredientClick);
   const modalCloseBtn = document.querySelector('[data-modal-close]');
   modalCloseBtn.addEventListener('click', toggleModal);
+  const addToFavouriteModalCocktail = document.querySelector(
+    '.cocktails-modal-btn'
+  );
+  addToFavouriteModalCocktail.addEventListener('click', addToFavouriteModal);
 }
 
 function createMarkupCocktailForModalListIngredients(res) {
@@ -47,10 +57,12 @@ function createMarkupCocktailForModalListIngredients(res) {
     .join('');
 }
 
-function createMarkupCocktailModal(res) {
+function createMarkupCocktailModal(res, data) {
   refs.modalCocktail.innerHTML = '';
   const { strDrinkThumb, strDrink, strInstructions, idDrink } =
     res.data.drinks[0];
+  id = idDrink;
+
   const markupModalCocktail = /*html*/ `<div class="modal-cocktail-wrapper"><img
         class="modal-cocktail-img"
         src="${strDrinkThumb}"
@@ -74,7 +86,11 @@ function createMarkupCocktailModal(res) {
         <p class="instruction-text">${strInstructions}</p>
       </div>
       <button id="${idDrink}" type="button" class="cocktails-modal-btn">
-        Add to favorite
+      ${
+        data.cocktails.includes(idDrink)
+          ? 'Remove from favorite'
+          : 'Add to favorite'
+      }
       </button>
   `;
   refs.modalCocktail.insertAdjacentHTML('beforeend', markupModalCocktail);
@@ -82,4 +98,6 @@ function createMarkupCocktailModal(res) {
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
+  // const qwe = document.querySelector(`#${id}`);
+  // console.log(qwe);
 }
