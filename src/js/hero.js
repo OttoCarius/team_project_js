@@ -3,6 +3,7 @@ import { fetchCocktail } from '../index';
 import { refs } from './refs';
 import Notiflix from 'notiflix';
 import { storageCocktailByLetter } from './storageCocktails';
+import data from './object';
 
 const letters = [
   'a',
@@ -78,7 +79,7 @@ async function renderMarkupByCheckedLetter(letter) {
   try {
     fetchCocktail.letter = letter;
     const arr = await fetchCocktail.getResultsByLetter();
-    const markup = createMarkup(arr);
+    const markup = createMarkup(arr, data);
     const drinks = filterQuantityItems(markup);
     renderMarkup(refs.listCocktail, drinks);
     storageCocktailByLetter();

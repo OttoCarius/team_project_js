@@ -2,6 +2,7 @@ import { refs } from './refs';
 import { fetchCocktail } from '..';
 import Notiflix from 'notiflix';
 import * as iconsModal from '../images/icons-modal.svg';
+import { addToFavoriteEngredients } from './addToFavourite';
 
 export async function onIngredientClick(e) {
   try {
@@ -26,6 +27,8 @@ function openModalIngredient(ingredient) {
   const modalCloseBtn = document.querySelector('[data-modal-close-ingr]');
   console.log(modalCloseBtn);
   modalCloseBtn.addEventListener('click', toggleModal);
+  const modIng = document.querySelector('.ingredients-modal-btn');
+  modIng.addEventListener('click', addToFavoriteEngredients);
 }
 
 function createModalIngredientMarkup(ingredient) {

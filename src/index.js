@@ -15,25 +15,41 @@ import {
   storageCocktailByLetter,
   storageCocktailByName,
 } from './js/storageCocktails';
-import { addToFavourite } from './js/addToFavourite';
+import { addToFavourite, checkResult } from './js/addToFavourite';
+
+import { getResultsCocktails } from './js/pageFavoriteCocktails';
 
 import './js/header.js';
+import data from './js/object';
 
 //Const
 export const fetchCocktail = new Cocktail();
+if (checkResult()) {
+  data.cocktails = checkResult();
+}
+console.log(data);
 
 //Run
-createAndRenderRandomMarkup();
-renderMarkup(refs.heroList, markupHeroLetters);
-renderMarkup(refs.searchSelect, markupHeroLettersMobile);
+// checkResult();
+createAndRenderRandomMarkup(data);
+renderMarkup(refs.heroList, markupHeroLetters, data);
+renderMarkup(refs.searchSelect, markupHeroLettersMobile, data);
 storageCocktailByLetter();
 storageCocktailByName();
+getResultsCocktails();
+
 // addToFavourite();
+// addToFavouriteModal(e);
 
 //Listener
 refs.searchCocktails.addEventListener('submit', onFormSubmit);
 refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
 refs.listCocktail.addEventListener('click', onloadMoreClick);
+// refs.listFavoriteCocktails.addEventListener()
+// refs.listCocktail.addEventListener('click', addToFavourite);
+// refs.addToFavouriteModal.addEventListener('click', addToFavouriteModal);
 
 //Functions
+// fetchCocktail.ingredientsById('1');
+// console.log(await fetchCocktail.ingredientsById('1'));
