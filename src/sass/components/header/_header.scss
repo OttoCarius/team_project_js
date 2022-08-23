@@ -8,7 +8,7 @@
   display: block;
 }
 
-.header__container {
+.header-container {
   display: flex;
   padding-top: 20px;
   position: relative;
@@ -261,7 +261,7 @@
 }
 
 @include mq(tab-only) {
-  .header__logo {
+  .header-logo {
     z-index: 10;
   }
   .search__form.active {
