@@ -1,3 +1,5 @@
+import { onPageFavCocktails } from './pageFavCocktails';
+// import { onPageFavIngredients } from './pageFavIngredients';
 const menuOpenBtn = document.querySelector('.mob-btn-open');
 const menuCloseBtn = document.querySelector('.mob-btn-close');
 const menu = document.querySelector('[data-menu]');
@@ -7,12 +9,18 @@ const themeNameDark = document.querySelector('.theme-name__dark');
 const favorite = document.querySelector('.favorite-acctive');
 const LinksTheme = document.querySelector('.favorite-wrapper');
 const searchForm = document.querySelector('[data-search]');
+const favoriteCocktails = document.querySelector('[data-fovorite_cocktails]');
+const favoriteIngredients = document.querySelector(
+  '[data-fovorite_ingredients]'
+);
 
 const active = document.querySelectorAll(
   'div.navigation-wrapper, div.theme-wrapper, form.search__form'
 );
 menuOpenBtn.addEventListener('click', onMenuBtnClick);
 menuCloseBtn.addEventListener('click', onMenuBtnClick);
+favoriteCocktails.addEventListener('click', onPageFavCocktails);
+// favoriteIngredients.addEventListener('click', onPageFavIngredients);
 
 function onMenuBtnClick() {
   menu.classList.toggle('is-hidden');

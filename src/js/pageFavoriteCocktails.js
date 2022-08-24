@@ -5,7 +5,7 @@ import { createMarkup, renderMarkup, filterQuantityItems } from './markup';
 
 export function getResultsCocktails() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
-  console.log(parsedArray);
+  // console.log(parsedArray);
 
   if (!parsedArray) {
     return;
