@@ -52,7 +52,7 @@ class Cocktail {
     }
   }
 
-  async ingredientsById(id) {
+  async getIngredientsById(id) {
     try {
       return await axios(`${BASE_URL}lookup.php?iid=${id}`);
     } catch (error) {

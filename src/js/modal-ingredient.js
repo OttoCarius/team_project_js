@@ -14,24 +14,23 @@ export async function onIngredientClick(e) {
     if (ingredientName.toLowerCase() !== ingredient.strIngredient.toLowerCase())
       return;
     // refs.modalCocktail.classList.add('is-hidden');
-
     openModalIngredient(ingredient);
   } catch (error) {
     return Notiflix.Notify.failure('Error!', error.message);
   }
 }
 
-function openModalIngredient(ingredient) {
+export function openModalIngredient(ingredient) {
   toggleModal();
   createModalIngredientMarkup(ingredient);
   const modalCloseBtn = document.querySelector('[data-modal-close-ingr]');
-  console.log(modalCloseBtn);
+  // console.log(modalCloseBtn);
   modalCloseBtn.addEventListener('click', toggleModal);
   const modIng = document.querySelector('.ingredients-modal-btn');
   modIng.addEventListener('click', addToFavoriteEngredients);
 }
 
-function createModalIngredientMarkup(ingredient) {
+export function createModalIngredientMarkup(ingredient) {
   refs.modalIngredient.innerHTML = '';
   const { strIngredient, strDescription, strType, strAlcohol, idIngredient } =
     ingredient;

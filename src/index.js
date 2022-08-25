@@ -21,6 +21,7 @@ import { getResultsCocktails } from './js/pageFavoriteCocktails';
 
 import './js/header.js';
 import data from './js/object';
+import { onloadMoreIngr } from './js/pageFavIngredients';
 
 //Const
 export const fetchCocktail = new Cocktail();
@@ -45,6 +46,8 @@ refs.searchCocktails.addEventListener('submit', onFormSubmit);
 refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
 refs.listCocktail.addEventListener('click', onloadMoreClick);
+refs.listCocktail.addEventListener('click', onloadMoreIngr);
+
 // refs.listFavoriteCocktails.addEventListener()
 // refs.listCocktail.addEventListener('click', addToFavourite);
 // refs.addToFavouriteModal.addEventListener('click', addToFavouriteModal);
