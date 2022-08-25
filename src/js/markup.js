@@ -16,9 +16,9 @@ export function createMarkup(arr, data) {
     return;
   }
   return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    console.log(data.cocktails.includes(idDrink));
-    console.log(data.cocktails);
-    console.log(idDrink);
+    // console.log(data.cocktails.includes(idDrink));
+    // console.log(data.cocktails);
+    // console.log(idDrink);
 
     return /*html*/ `<li class='card-list'><div class="card-thumb"><div class="dist"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2></div><div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite ${
       data.cocktails.includes(idDrink) ? 'is-add' : ''
@@ -36,21 +36,18 @@ export function filterQuantityItems(markup) {
     if (markup.length > 3) {
       console.log('more then 3');
       refs.loadMore.style.display = 'block';
-      // onLoadMore();
     }
     return markup.filter((_, index) => index < 3).join('');
   } else if (window.screen.width < 1280) {
     if (markup.length > 6) {
       console.log('more then 6');
       refs.loadMore.style.display = 'block';
-      // onLoadMore();
     }
     return markup.filter((_, index) => index < 6).join('');
   } else {
     if (markup.length > 9) {
       console.log('more then 9');
       refs.loadMore.style.display = 'block';
-      // onLoadMore();
     }
     return markup.filter((_, index) => index < 9).join('');
   }
