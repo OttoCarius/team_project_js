@@ -1,5 +1,7 @@
 export const refs = {
   heroList: document.querySelector('.js-hero-list'),
+  heroSection: document.querySelector('.hero'),
+  cocktailTitle: document.querySelector('.cocktail-title'),
   searchSelect: document.querySelector('#search-letter'),
   sectionSorry: document.querySelector('.js-sorry'),
   modalCocktail: document.querySelector('.modal-cocktail'),

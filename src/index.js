@@ -27,7 +27,6 @@ export const fetchCocktail = new Cocktail();
 if (checkResult()) {
   data.cocktails = checkResult();
 }
-console.log(data);
 
 //Run
 // checkResult();

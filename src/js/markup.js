@@ -16,10 +16,6 @@ export function createMarkup(arr, data) {
     return;
   }
   return arr.data.drinks.map(({ strDrink, strDrinkThumb, idDrink }) => {
-    console.log(data.cocktails.includes(idDrink));
-    console.log(data.cocktails);
-    console.log(idDrink);
-
     return /*html*/ `<li class='card-list'><div class="card-thumb"><div class="dist"><img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2></div><div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite ${
       data.cocktails.includes(idDrink) ? 'is-add' : ''
     }' type='button' data-action="favourite">Add to</button></div></div></li>`;
@@ -57,10 +53,8 @@ export function filterQuantityItems(markup) {
 }
 
 export function createRandomMarkup(arr, data) {
-  console.log(data.cocktails);
   return arr.map(item => {
     const { strDrink, strDrinkThumb, idDrink } = item.data.drinks[0];
-    // console.log('id', idDrink);
     return /*html*/ `<li  class='card-list'><div class="card-thumb">
     <img class="img-cocktail" src=${strDrinkThumb} alt=${strDrink} width='395' height='395' /><h2 class="title-card">${strDrink}</h2>
     <div class="btn-wrapper" id="${idDrink}"><button id="${idDrink}" class='btn-cocktail btn-learn-more' type='button' data-btn_more="learn-more">Learn more</button><button id="${idDrink}" class='btn-cocktail btn-add-to-favorite ${
