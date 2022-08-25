@@ -21,7 +21,6 @@ const data = {
 
     saveData(this._cocktails);
     toggleIcon(this._cocktails);
-    console.log(999999);
   },
 };
 export default data;

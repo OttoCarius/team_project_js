@@ -15,7 +15,7 @@ export async function storageCocktailByLetter() {
 export async function storageCocktailByName() {
   const arrOfCocktails = await fetchCocktail.getResults();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(arrOfCocktails));
-  console.log(arrOfCocktails);
+  // console.log(arrOfCocktails);
 }
 
 export function onLoadMore() {
