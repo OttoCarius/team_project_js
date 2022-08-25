@@ -1,5 +1,9 @@
 import { refs } from './refs';
-import { createRandomMarkup, renderMarkup } from './markup';
+import {
+  createRandomMarkup,
+  renderMarkup,
+  filterQuantityItems,
+} from './markup';
 import data from './object';
 import { fetchCocktail } from '..';
 import { FAVOURITE_KEY } from './addToFavourite';
@@ -9,6 +13,8 @@ export async function onPageFavCocktails() {
   refs.cocktailTitle.textContent = 'Favorite cocktails';
   refs.cocktailTitle.parentNode.style.marginTop = '60px';
   refs.listCocktail.innerHTML = '';
+  refs.listCocktail.classList.remove('list-ing');
+  refs.listCocktail.classList.remove('card-set');
 
   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
   if (!parsedArray) {
@@ -20,7 +26,8 @@ export async function onPageFavCocktails() {
   const res = await Promise.all(array);
 
   const markup = createRandomMarkup(res, data);
-  renderMarkup(refs.listCocktail, markup);
+  const drinks = filterQuantityItems(markup);
+  renderMarkup(refs.listCocktail, drinks);
   const arrBtnAddTo = document.querySelectorAll('.btn-add-to-favorite');
   arrBtnAddTo.forEach(element => {
     element.textContent = 'Remove';

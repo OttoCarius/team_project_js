@@ -1,9 +1,9 @@
 import { refs } from './refs';
-import { onLoadMore } from './storageCocktails';
+// import { onLoadMore } from './storageCocktails';
 // import data from './object';
 // console.log(data);
 
-import { saveData, toggleIcon } from './addToFavourite';
+// import { saveData, toggleIcon } from './addToFavourite';
 
 //Functions
 export function createMarkup(arr, data) {
@@ -63,12 +63,14 @@ export function createRandomMarkup(arr, data) {
 
 export function createIngredientsMarkup(arr) {
   return arr.map(item => {
-    const { strIngredient, strType, idIngredient } = item.ingredients;
+    const { strIngredient, strType, idIngredient } = item.data.ingredients[0];
     return /*html*/ `<li class="list-ing__item card-set__item">
       <h2 class="list-ing__title">${strIngredient}</h2>
-      <p class="list-ing__name">${strType}</p>
+      <p class="list-ing__name">${
+        strType === null ? 'Sorry, not specified' : strType
+      }</p>
       <div class="list-btn">
-        <button id="${idIngredient}" type="button" class="btn-modal">Learn more</button>
+        <button id="${idIngredient}" type="button" class="btn-modal" data-ing_more="ing_more" data-ing_id="${idIngredient}">Learn more</button> <button type="button" class="btn-remove">Remove</button>
       </div>
     </li>`;
   });

@@ -1,5 +1,5 @@
 import { onPageFavCocktails } from './pageFavCocktails';
-// import { onPageFavIngredients } from './pageFavIngredients';
+import { onPageFavIngredients } from './pageFavIngredients';
 const menuOpenBtn = document.querySelector('.mob-btn-open');
 const menuCloseBtn = document.querySelector('.mob-btn-close');
 const menu = document.querySelector('[data-menu]');
@@ -20,7 +20,7 @@ const active = document.querySelectorAll(
 menuOpenBtn.addEventListener('click', onMenuBtnClick);
 menuCloseBtn.addEventListener('click', onMenuBtnClick);
 favoriteCocktails.addEventListener('click', onPageFavCocktails);
-// favoriteIngredients.addEventListener('click', onPageFavIngredients);
+favoriteIngredients.addEventListener('click', onPageFavIngredients);
 
 function onMenuBtnClick() {
   menu.classList.toggle('is-hidden');
