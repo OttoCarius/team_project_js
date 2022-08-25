@@ -32,21 +32,18 @@ export function filterQuantityItems(markup) {
     if (markup.length > 3) {
       console.log('more then 3');
       refs.loadMore.style.display = 'block';
-      // onLoadMore();
     }
     return markup.filter((_, index) => index < 3).join('');
   } else if (window.screen.width < 1280) {
     if (markup.length > 6) {
       console.log('more then 6');
       refs.loadMore.style.display = 'block';
-      // onLoadMore();
     }
     return markup.filter((_, index) => index < 6).join('');
   } else {
     if (markup.length > 9) {
       console.log('more then 9');
       refs.loadMore.style.display = 'block';
-      // onLoadMore();
     }
     return markup.filter((_, index) => index < 9).join('');
   }

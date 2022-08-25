@@ -3,6 +3,7 @@ import { fetchCocktail } from '../index';
 import { createMarkup, renderMarkup } from './markup';
 import './header';
 import { STORAGE_KEY } from './variables';
+import data from './object';
 
 refs.loadMore.addEventListener('click', onLoadMore);
 
@@ -18,10 +19,10 @@ export async function storageCocktailByName() {
 }
 
 export function onLoadMore() {
-  refs.loadMore.classList.add('is-hidden');
-  // console.log('click on the button');
+  refs.loadMore.style.display = 'none';
+  console.log('click on the button');
   const savedCocktails = localStorage.getItem(STORAGE_KEY);
   const parsedCocktails = JSON.parse(savedCocktails);
-  const markup = createMarkup(parsedCocktails);
+  const markup = createMarkup(parsedCocktails, data);
   renderMarkup(refs.listCocktail, markup.join(''));
 }
