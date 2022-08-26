@@ -1,11 +1,11 @@
 import { refs } from './refs';
 import data from './object';
 
-export const dataCocktail = [];
-// export const dataIngredients = [];
-
 export const FAVOURITE_KEY = 'storage-favourite';
 export const FAVORITE_INGREDIENTS = 'favorite-ingredients';
+
+export const dataCocktail = [];
+export const dataIngredients = checkResultIngredients() || [];
 
 refs.listCocktail.addEventListener('click', addToFavourite);
 
@@ -15,7 +15,7 @@ export function addToFavourite(e) {
 }
 
 export function addToFavoriteEngredients(e) {
-  console.log(dataIngredients);
+  // console.log(dataIngredients);
   if (dataIngredients.includes(e.target.id)) {
     e.target.textContent = 'Add to favorite';
     const positionIndex = dataIngredients.indexOf(e.target.id);

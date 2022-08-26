@@ -15,11 +15,7 @@ import {
   storageCocktailByLetter,
   storageCocktailByName,
 } from './js/storageCocktails';
-import {
-  addToFavourite,
-  checkResult,
-  checkResultIngredients,
-} from './js/addToFavourite';
+import { checkResult } from './js/addToFavourite';
 
 import { getResultsCocktails } from './js/pageFavoriteCocktails';
 
@@ -32,12 +28,6 @@ export const fetchCocktail = new Cocktail();
 
 if (checkResult()) {
   data.cocktails = checkResult();
-}
-
-checkResultIngredients();
-dataIngredients = [];
-if (checkResultIngredients()) {
-  dataIngredients = checkResultIngredients();
 }
 
 //Run
