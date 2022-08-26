@@ -19,7 +19,6 @@ import {
   addToFavourite,
   checkResult,
   checkResultIngredients,
-  dataIngredients,
 } from './js/addToFavourite';
 
 import { getResultsCocktails } from './js/pageFavoriteCocktails';
