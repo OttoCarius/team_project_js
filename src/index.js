@@ -15,7 +15,12 @@ import {
   storageCocktailByLetter,
   storageCocktailByName,
 } from './js/storageCocktails';
-import { addToFavourite, checkResult } from './js/addToFavourite';
+import {
+  addToFavourite,
+  checkResult,
+  checkResultIngredients,
+  dataIngredients,
+} from './js/addToFavourite';
 
 import { getResultsCocktails } from './js/pageFavoriteCocktails';
 
@@ -25,8 +30,15 @@ import { onloadMoreIngr } from './js/pageFavIngredients';
 
 //Const
 export const fetchCocktail = new Cocktail();
+
 if (checkResult()) {
   data.cocktails = checkResult();
+}
+
+checkResultIngredients();
+dataIngredients = [];
+if (checkResultIngredients()) {
+  dataIngredients = checkResultIngredients();
 }
 
 //Run
