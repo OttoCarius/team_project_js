@@ -2,7 +2,7 @@ import { refs } from './refs';
 import data from './object';
 
 export const dataCocktail = [];
-export const dataIngredients = [];
+// export const dataIngredients = [];
 
 export const FAVOURITE_KEY = 'storage-favourite';
 export const FAVORITE_INGREDIENTS = 'favorite-ingredients';
@@ -12,29 +12,34 @@ refs.listCocktail.addEventListener('click', addToFavourite);
 export function addToFavourite(e) {
   if (!e.target.dataset.action) return;
   data.cocktails = e.target.id;
-  console.log(data);
 }
 
 export function addToFavoriteEngredients(e) {
+  console.log(dataIngredients);
   if (dataIngredients.includes(e.target.id)) {
     e.target.textContent = 'Add to favorite';
-
     const positionIndex = dataIngredients.indexOf(e.target.id);
     dataIngredients.splice(positionIndex, 1);
+
     return localStorage.setItem(
       FAVORITE_INGREDIENTS,
       JSON.stringify(dataIngredients)
     );
   }
-
   e.target.textContent = 'Remove from favorite';
-
   dataIngredients.push(e.target.id);
-
   return localStorage.setItem(
     FAVORITE_INGREDIENTS,
     JSON.stringify(dataIngredients)
   );
+}
+
+export function checkResultIngredients() {
+  const data = localStorage.getItem(FAVORITE_INGREDIENTS);
+  if (!data) {
+    return;
+  }
+  return JSON.parse(data);
 }
 
 export function checkResult() {

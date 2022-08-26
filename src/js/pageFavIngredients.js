@@ -8,7 +8,10 @@ import {
 import { fetchCocktail } from '..';
 import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
-import { addToFavoriteEngredients } from './addToFavourite';
+import {
+  addToFavoriteEngredients,
+  checkResultIngredients,
+} from './addToFavourite';
 
 export async function onPageFavIngredients() {
   refs.heroSection.style.display = 'none';
