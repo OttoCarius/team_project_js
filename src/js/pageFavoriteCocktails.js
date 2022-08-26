@@ -1,11 +1,11 @@
-import { FAVOURITE_KEY } from './addToFavourite';
+// import { FAVOURITE_KEY } from './addToFavourite';
 
-export function getResultsCocktails() {
-  const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
+// export function getResultsCocktails() {
+//   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
 
-  if (!parsedArray) {
-    return;
-  }
-}
+//   if (!parsedArray) {
+//     return;
+//   }
+// }
 
-getResultsCocktails();
+// getResultsCocktails();

@@ -20,6 +20,6 @@ export async function onFormSubmit(event) {
     storageCocktailByName();
     event.target.elements.query.value = '';
   } catch (error) {
-    return Notiflix.Notify.failure('Error!sdvsdvsdvsdvs', error.message);
+    return Notiflix.Notify.failure('Error!', error.message);
   }
 }

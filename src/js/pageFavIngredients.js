@@ -1,17 +1,21 @@
 import { refs } from './refs';
-import {
-  createIngredientsMarkup,
-  filterQuantityItems,
-  renderMarkup,
-} from './markup';
+import { createIngredientsMarkup, renderMarkup } from './markup';
 // import data from './object';
 import { fetchCocktail } from '..';
 import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
-import {
-  addToFavoriteEngredients,
-  checkResultIngredients,
-} from './addToFavourite';
+import { addToFavoriteIngrModal } from './addToFavourite';
+import data from './object';
+
+export function getResultsIngredients() {
+  const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
+
+  if (!parsedArray) {
+    return;
+  }
+}
+
+getResultsIngredients();
 
 export async function onPageFavIngredients() {
   refs.heroSection.style.display = 'none';
@@ -31,15 +35,13 @@ export async function onPageFavIngredients() {
     return fetchCocktail.getIngredientsById(id);
   });
   const res = await Promise.all(array);
-  const markup = createIngredientsMarkup(res);
-  const ingredients = filterQuantityItems(markup);
+  const markup = createIngredientsMarkup(res, data);
 
-  renderMarkup(refs.listCocktail, ingredients);
+  renderMarkup(refs.listCocktail, markup.join(''));
 }
 
 export async function onloadMoreIngr(e) {
   if (e.target.dataset.ing_more !== 'ing_more') return;
-  console.log(e.target.dataset.ing_id);
   const id = e.target.dataset.ing_id;
   const res = await fetchCocktail.getIngredientsById(id);
   const ingredient = res.data.ingredients[0];
@@ -48,17 +50,21 @@ export async function onloadMoreIngr(e) {
 }
 
 function openModalIngr(ingredient) {
-  createModalIngredientMarkup(ingredient);
+  createModalIngredientMarkup(ingredient, data);
   const modalCloseBtn = document.querySelector('[data-modal-close-ingr]');
   modalCloseBtn.addEventListener('click', toggleModal);
   const modIng = document.querySelector('.ingredients-modal-btn');
-  modIng.textContent = 'Remove from favorite';
-  modIng.addEventListener('click', addToFavoriteEngredients);
+  modIng.addEventListener('click', addToFavoriteIngrModal);
 }
 
 function toggleModal() {
-  console.log(1111);
   refs.modal.classList.toggle('is-hidden');
   refs.modalIngredient.classList.toggle('is-hidden');
   refs.modalCocktail.classList.toggle('is-hidden');
+}
+
+export function onRemoveIngr(e) {
+  if (e.target.dataset.ing_remove !== 'ing_remove') return;
+  const id = e.target.dataset.ingr_id;
+  data.ingredients = id;
 }
