@@ -58,7 +58,6 @@ function createMarkupCocktailModal(res, data) {
   refs.modalCocktail.innerHTML = '';
   const { strDrinkThumb, strDrink, strInstructions, idDrink } =
     res.data.drinks[0];
-  // id = idDrink;
 
   const markupModalCocktail = /*html*/ `<div class="modal-cocktail-wrapper"><img
         class="modal-cocktail-img"

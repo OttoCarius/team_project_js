@@ -1,13 +1,9 @@
 import { refs } from './refs';
-import {
-  createRandomMarkup,
-  renderMarkup,
-  filterQuantityItems,
-} from './markup';
+import { createRandomMarkup, renderMarkup } from './markup';
 import data from './object';
 import { fetchCocktail } from '..';
 import { FAVOURITE_KEY } from './addToFavourite';
-
+import { LinksTheme } from './header';
 export function getResultsCocktails() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
 
@@ -19,6 +15,8 @@ export function getResultsCocktails() {
 getResultsCocktails();
 
 export async function onPageFavCocktails() {
+  LinksTheme.classList.toggle('favorite-wrapper__close');
+
   refs.heroSection.style.display = 'none';
   refs.cocktailTitle.textContent = 'Favorite cocktails';
   refs.cocktailTitle.parentNode.style.marginTop = '60px';
