@@ -15,20 +15,20 @@ import {
   storageCocktailByLetter,
   storageCocktailByName,
 } from './js/storageCocktails';
-import { checkResult } from './js/addToFavourite';
+// import { checkResult } from './js/addToFavourite';
 
-import { getResultsCocktails } from './js/pageFavoriteCocktails';
-
+import { getResultsCocktails } from './js/pageFavCocktails';
+import { getResultsIngredients } from './js/pageFavIngredients';
 import './js/header.js';
 import data from './js/object';
-import { onloadMoreIngr } from './js/pageFavIngredients';
+import { onloadMoreIngr, onRemoveIngr } from './js/pageFavIngredients';
 
 //Const
 export const fetchCocktail = new Cocktail();
 
-if (checkResult()) {
-  data.cocktails = checkResult();
-}
+// if (checkResult()) {
+//   data.cocktails = checkResult();
+// }
 
 //Run
 // checkResult();
@@ -38,6 +38,7 @@ renderMarkup(refs.searchSelect, markupHeroLettersMobile, data);
 storageCocktailByLetter();
 storageCocktailByName();
 getResultsCocktails();
+getResultsIngredients();
 
 // addToFavourite();
 // addToFavouriteModal(e);
@@ -48,6 +49,7 @@ refs.heroList.addEventListener('click', onLetterClick);
 refs.searchSelect.addEventListener('change', onSelectChange);
 refs.listCocktail.addEventListener('click', onloadMoreClick);
 refs.listCocktail.addEventListener('click', onloadMoreIngr);
+refs.listCocktail.addEventListener('click', onRemoveIngr);
 
 // refs.listFavoriteCocktails.addEventListener()
 // refs.listCocktail.addEventListener('click', addToFavourite);

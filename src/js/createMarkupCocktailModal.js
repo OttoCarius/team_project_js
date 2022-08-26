@@ -4,10 +4,7 @@ import Notiflix from 'notiflix';
 import { onIngredientClick } from './modal-ingredient';
 import * as iconsModal from '../images/icons-modal.svg';
 import { addToFavouriteModal } from './addToFavourite';
-import { dataCocktail } from './addToFavourite';
 import data from './object';
-
-import { saveData, toggleIcon } from './addToFavourite';
 
 export async function onloadMoreClick(e) {
   try {
@@ -98,6 +95,4 @@ function createMarkupCocktailModal(res, data) {
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
-  // const qwe = document.querySelector(`#${id}`);
-  // console.log(qwe);
 }

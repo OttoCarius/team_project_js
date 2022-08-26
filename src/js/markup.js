@@ -61,7 +61,8 @@ export function createRandomMarkup(arr, data) {
   });
 }
 
-export function createIngredientsMarkup(arr) {
+export function createIngredientsMarkup(arr, data) {
+  console.log(data);
   return arr.map(item => {
     const { strIngredient, strType, idIngredient } = item.data.ingredients[0];
     return /*html*/ `<li class="list-ing__item card-set__item">
@@ -70,7 +71,9 @@ export function createIngredientsMarkup(arr) {
         strType === null ? 'Sorry, not specified' : strType
       }</p>
       <div class="list-btn">
-        <button id="${idIngredient}" type="button" class="btn-modal" data-ing_more="ing_more" data-ing_id="${idIngredient}">Learn more</button> <button type="button" class="btn-remove">Remove</button>
+        <button  type="button" class="btn-modal" data-ing_more="ing_more" data-ing_id="${idIngredient}">Learn more</button> <button data-ing_remove="ing_remove" data-ingr_id="${idIngredient}" type="button" id="${idIngredient}" class="btn-remove js-btn-remove ${
+      data.ingredients.includes(idIngredient) ? 'is-add' : ''
+    }">Remove</button>
       </div>
     </li>`;
   });

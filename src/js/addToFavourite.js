@@ -4,9 +4,6 @@ import data from './object';
 export const FAVOURITE_KEY = 'storage-favourite';
 export const FAVORITE_INGREDIENTS = 'favorite-ingredients';
 
-export const dataCocktail = [];
-export const dataIngredients = checkResultIngredients() || [];
-
 refs.listCocktail.addEventListener('click', addToFavourite);
 
 export function addToFavourite(e) {
@@ -14,50 +11,45 @@ export function addToFavourite(e) {
   data.cocktails = e.target.id;
 }
 
-export function addToFavoriteEngredients(e) {
-  // console.log(dataIngredients);
-  if (dataIngredients.includes(e.target.id)) {
-    e.target.textContent = 'Add to favorite';
-    const positionIndex = dataIngredients.indexOf(e.target.id);
-    dataIngredients.splice(positionIndex, 1);
+// export function checkResultIngredients() {
+//   const data = localStorage.getItem(FAVORITE_INGREDIENTS);
+//   if (!data) {
+//     return;
+//   }
+//   return JSON.parse(data);
+// }
 
-    return localStorage.setItem(
-      FAVORITE_INGREDIENTS,
-      JSON.stringify(dataIngredients)
-    );
-  }
-  e.target.textContent = 'Remove from favorite';
-  dataIngredients.push(e.target.id);
-  return localStorage.setItem(
-    FAVORITE_INGREDIENTS,
-    JSON.stringify(dataIngredients)
-  );
-}
-
-export function checkResultIngredients() {
-  const data = localStorage.getItem(FAVORITE_INGREDIENTS);
-  if (!data) {
-    return;
-  }
-  return JSON.parse(data);
-}
-
-export function checkResult() {
-  const data = localStorage.getItem(FAVOURITE_KEY);
-  if (!data) {
-    return;
-  }
-  return JSON.parse(data);
-}
+// export function checkResult() {
+//   const data = localStorage.getItem(FAVOURITE_KEY);
+//   if (!data) {
+//     return;
+//   }
+//   return JSON.parse(data);
+// }
 
 export function saveData(cocktails) {
   localStorage.setItem(FAVOURITE_KEY, JSON.stringify(cocktails));
+}
+
+export function saveDataIngr(ingredients) {
+  localStorage.setItem(FAVORITE_INGREDIENTS, JSON.stringify(ingredients));
 }
 
 export function toggleIcon(cocktails) {
   const items = refs.listCocktail.querySelectorAll('.btn-add-to-favorite');
   items.forEach(item => {
     if (cocktails.includes(item.getAttribute('id'))) {
+      item.classList.add('is-add');
+    } else {
+      item.classList.remove('is-add');
+    }
+  });
+}
+
+export function toggleIconIngr(ingredients) {
+  const items = refs.listCocktail.querySelectorAll('.js-btn-remove');
+  items.forEach(item => {
+    if (ingredients.includes(item.getAttribute('id'))) {
       item.classList.add('is-add');
     } else {
       item.classList.remove('is-add');
@@ -74,8 +66,21 @@ export function addToFavouriteModal(e) {
 }
 
 export function toggleTextBtn(cocktails) {
-  console.log(btn.id);
   if (cocktails.includes(btn.id)) {
+    btn.textContent = 'Remove from favorite';
+  } else {
+    btn.textContent = 'Add to favorite';
+  }
+}
+
+export function addToFavoriteIngrModal(e) {
+  btn = e.target;
+  data.ingredients = e.target.id;
+  toggleTextIngrBtn(data.ingredients);
+}
+
+export function toggleTextIngrBtn(ingredients) {
+  if (ingredients.includes(btn.id)) {
     btn.textContent = 'Remove from favorite';
   } else {
     btn.textContent = 'Add to favorite';

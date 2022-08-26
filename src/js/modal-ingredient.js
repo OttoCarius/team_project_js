@@ -2,8 +2,8 @@ import { refs } from './refs';
 import { fetchCocktail } from '..';
 import Notiflix from 'notiflix';
 import * as iconsModal from '../images/icons-modal.svg';
-import { addToFavoriteEngredients } from './addToFavourite';
-
+import { addToFavoriteIngrModal } from './addToFavourite';
+import data from './object';
 export async function onIngredientClick(e) {
   try {
     if (e.target.dataset.btn_ingr !== 'ingredient') return;
@@ -13,24 +13,22 @@ export async function onIngredientClick(e) {
     const ingredient = res.data.ingredients[0];
     if (ingredientName.toLowerCase() !== ingredient.strIngredient.toLowerCase())
       return;
-    // refs.modalCocktail.classList.add('is-hidden');
-    openModalIngredient(ingredient);
+    openModalIngredient(ingredient, data);
   } catch (error) {
     return Notiflix.Notify.failure('Error!', error.message);
   }
 }
 
-export function openModalIngredient(ingredient) {
+export function openModalIngredient(ingredient, data) {
   toggleModal();
-  createModalIngredientMarkup(ingredient);
+  createModalIngredientMarkup(ingredient, data);
   const modalCloseBtn = document.querySelector('[data-modal-close-ingr]');
-  // console.log(modalCloseBtn);
   modalCloseBtn.addEventListener('click', toggleModal);
   const modIng = document.querySelector('.ingredients-modal-btn');
-  modIng.addEventListener('click', addToFavoriteEngredients);
+  modIng.addEventListener('click', addToFavoriteIngrModal);
 }
 
-export function createModalIngredientMarkup(ingredient) {
+export function createModalIngredientMarkup(ingredient, data) {
   refs.modalIngredient.innerHTML = '';
   const { strIngredient, strDescription, strType, strAlcohol, idIngredient } =
     ingredient;
@@ -70,9 +68,12 @@ id=${idIngredient}
   class="ingredients-modal-btn"
   
 >
-  Add to favorite
+  ${
+    data.ingredients.includes(idIngredient)
+      ? 'Remove from favorite'
+      : 'Add to favorite'
+  }
 </button></div>`;
-  // console.log(markupModalIngredient);
   refs.modalIngredient.insertAdjacentHTML('beforeend', markupModalIngredient);
 }
 
