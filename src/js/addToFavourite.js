@@ -11,21 +11,21 @@ export function addToFavourite(e) {
   data.cocktails = e.target.id;
 }
 
-// export function checkResultIngredients() {
-//   const data = localStorage.getItem(FAVORITE_INGREDIENTS);
-//   if (!data) {
-//     return;
-//   }
-//   return JSON.parse(data);
-// }
+export function checkResultIngredients() {
+  const data = localStorage.getItem(FAVORITE_INGREDIENTS);
+  if (!data) {
+    return;
+  }
+  return JSON.parse(data);
+}
 
-// export function checkResult() {
-//   const data = localStorage.getItem(FAVOURITE_KEY);
-//   if (!data) {
-//     return;
-//   }
-//   return JSON.parse(data);
-// }
+export function checkResult() {
+  const data = localStorage.getItem(FAVOURITE_KEY);
+  if (!data) {
+    return;
+  }
+  return JSON.parse(data);
+}
 
 export function saveData(cocktails) {
   localStorage.setItem(FAVOURITE_KEY, JSON.stringify(cocktails));

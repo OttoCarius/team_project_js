@@ -1,9 +1,4 @@
 import { refs } from './refs';
-// import { onLoadMore } from './storageCocktails';
-// import data from './object';
-// console.log(data);
-
-// import { saveData, toggleIcon } from './addToFavourite';
 
 //Functions
 export function createMarkup(arr, data) {

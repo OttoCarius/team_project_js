@@ -1,11 +1,11 @@
 import { refs } from './refs';
 import { createIngredientsMarkup, renderMarkup } from './markup';
-// import data from './object';
 import { fetchCocktail } from '..';
 import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
 import { addToFavoriteIngrModal } from './addToFavourite';
 import data from './object';
+import { LinksTheme } from './header';
 
 export function getResultsIngredients() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
@@ -18,6 +18,8 @@ export function getResultsIngredients() {
 getResultsIngredients();
 
 export async function onPageFavIngredients() {
+  LinksTheme.classList.toggle('favorite-wrapper__close');
+
   refs.heroSection.style.display = 'none';
   refs.cocktailTitle.textContent = 'Favorite ingredients';
   refs.cocktailTitle.parentNode.style.marginTop = '60px';

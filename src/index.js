@@ -15,7 +15,7 @@ import {
   storageCocktailByLetter,
   storageCocktailByName,
 } from './js/storageCocktails';
-// import { checkResult } from './js/addToFavourite';
+import { checkResult, checkResultIngredients } from './js/addToFavourite';
 
 import { getResultsCocktails } from './js/pageFavCocktails';
 import { getResultsIngredients } from './js/pageFavIngredients';
@@ -26,12 +26,13 @@ import { onloadMoreIngr, onRemoveIngr } from './js/pageFavIngredients';
 //Const
 export const fetchCocktail = new Cocktail();
 
-// if (checkResult()) {
-//   data.cocktails = checkResult();
-// }
-
 //Run
-// checkResult();
+if (checkResult()) {
+  data.cocktails = checkResult();
+}
+if (checkResultIngredients()) {
+  data.ingredients = checkResultIngredients();
+}
 createAndRenderRandomMarkup(data);
 renderMarkup(refs.heroList, markupHeroLetters, data);
 renderMarkup(refs.searchSelect, markupHeroLettersMobile, data);

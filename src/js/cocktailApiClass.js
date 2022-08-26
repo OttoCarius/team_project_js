@@ -12,7 +12,6 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}search.php?s=${this.name}`);
     } catch (error) {
-      // alert(error);
       throw new Error(error);
     }
   }
@@ -21,7 +20,6 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}search.php?f=${this.letter}`);
     } catch (error) {
-      // alert(error);
       throw new Error(error);
     }
   }
@@ -30,7 +28,6 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}lookup.php?i=${id}`);
     } catch (error) {
-      // alert(error);
       throw new Error(error);
     }
   }
@@ -72,7 +69,6 @@ class Cocktail {
     try {
       return await axios(`${BASE_URL}/search.php?i=${string}`);
     } catch (error) {
-      // alert(error);
       throw new Error(error);
     }
   }
