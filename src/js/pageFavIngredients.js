@@ -5,7 +5,7 @@ import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
 import { addToFavoriteIngrModal } from './addToFavourite';
 import data from './object';
-import { LinksTheme } from './header';
+import { LinksTheme, onMenuBtnClick } from './header';
 
 export function getResultsIngredients() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
@@ -18,6 +18,7 @@ export function getResultsIngredients() {
 getResultsIngredients();
 
 export async function onPageFavIngredients() {
+  onMenuBtnClick();
   LinksTheme.classList.toggle('favorite-wrapper__close');
 
   refs.heroSection.style.display = 'none';

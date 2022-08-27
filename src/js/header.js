@@ -22,7 +22,7 @@ menuCloseBtn.addEventListener('click', onMenuBtnClick);
 favoriteCocktails.addEventListener('click', onPageFavCocktails);
 favoriteIngredients.addEventListener('click', onPageFavIngredients);
 
-function onMenuBtnClick() {
+export function onMenuBtnClick() {
   menu.classList.toggle('is-hidden');
   active.forEach(el => el.classList.toggle('active'));
 }
