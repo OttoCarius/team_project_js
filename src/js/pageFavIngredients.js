@@ -9,11 +9,8 @@ import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
 import { addToFavoriteIngrModal } from './addToFavourite';
 import data from './object';
-import { LinksTheme } from './header';
 import { onLoadMoreFavCock } from './pageFavCocktails';
-
-// refs.loadMore.addEventListener('click', onLoadMoreFavIngr);
-// refs.loadMore.removeEventListener('click', onLoadMoreFavCock);
+import { LinksTheme, onMenuBtnClick } from './header';
 
 export function getResultsIngredients() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
@@ -26,6 +23,7 @@ export function getResultsIngredients() {
 getResultsIngredients();
 
 export async function onPageFavIngredients() {
+  onMenuBtnClick();
   LinksTheme.classList.toggle('favorite-wrapper__close');
   refs.loadMore.classList.remove('pagecocktails');
   refs.heroSection.style.display = 'none';
@@ -80,19 +78,3 @@ export function onRemoveIngr(e) {
   const id = e.target.dataset.ingr_id;
   data.ingredients = id;
 }
-
-// async function onLoadMoreFavIngr() {
-// refs.loadMore.removeEventListener('click', onLoadMoreFavCock);
-// refs.loadMore.style.display = 'none';
-// const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
-// if (!parsedArray) {
-//   return;
-// }
-// const array = parsedArray.map(id => {
-//   return fetchCocktail.getResultsById(id);
-// });
-// const res = await Promise.all(array);
-
-// const markup = createRandomMarkup(res, data).join('');
-// renderMarkup(refs.listCocktail, markup);
-// }

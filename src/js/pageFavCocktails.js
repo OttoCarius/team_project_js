@@ -7,16 +7,10 @@ import {
 } from './markup';
 import data from './object';
 import { fetchCocktail } from '..';
-import {
-  FAVOURITE_KEY,
-  FAVORITE_INGREDIENTS,
-  checkResult,
-} from './addToFavourite';
-import { LinksTheme } from './header';
-import { onLoadMoreFavIngr } from './pageFavIngredients';
-// import { onLoadMoreFavCock } from './loadMorePage';
+import { FAVOURITE_KEY, FAVORITE_INGREDIENTS } from './addToFavourite';
 
 refs.loadMore.addEventListener('click', onLoadMoreFavCock);
+import { LinksTheme, onMenuBtnClick } from './header';
 
 export function getResultsCocktails() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
@@ -28,6 +22,7 @@ export function getResultsCocktails() {
 getResultsCocktails();
 
 export async function onPageFavCocktails() {
+  onMenuBtnClick();
   LinksTheme.classList.toggle('favorite-wrapper__close');
   refs.loadMore.classList.add('pagecocktails');
   refs.heroSection.style.display = 'none';
@@ -50,35 +45,12 @@ export async function onPageFavCocktails() {
 
   const markup = createRandomMarkup(res, data);
   const drinks = filterQuantityItems(markup);
-
-  // console.log('markup-->', markup);
-  // console.log('drinks-->', drinks);
   renderMarkup(refs.listCocktail, drinks);
   const arrBtnAddTo = document.querySelectorAll('.btn-add-to-favorite');
   arrBtnAddTo.forEach(element => {
     element.textContent = 'Remove';
   });
 }
-
-// export async function onLoadMoreFavCock() {
-//   refs.loadMore.removeEventListener('click', onLoadMoreFavIngr);
-//   refs.loadMore.style.display = 'none';
-//   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
-//   if (!parsedArray) {
-//     return;
-//   }
-//   const array = parsedArray.map(id => {
-//     return fetchCocktail.getResultsById(id);
-//   });
-//   const res = await Promise.all(array);
-
-//   const markup = createRandomMarkup(res, data).join('');
-//   renderMarkup(refs.listCocktail, markup);
-//   const arrBtnAddTo = document.querySelectorAll('.btn-add-to-favorite');
-//   arrBtnAddTo.forEach(element => {
-//     element.textContent = 'Remove';
-//   });
-// }
 
 export async function onLoadMoreFavCock(e) {
   refs.loadMore.style.display = 'none';
