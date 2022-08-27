@@ -1,10 +1,15 @@
 import { refs } from './refs';
-import { createIngredientsMarkup, renderMarkup } from './markup';
+import {
+  createIngredientsMarkup,
+  renderMarkup,
+  filterQuantityItems,
+} from './markup';
 import { fetchCocktail } from '..';
 import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
 import { addToFavoriteIngrModal } from './addToFavourite';
 import data from './object';
+import { onLoadMoreFavCock } from './pageFavCocktails';
 import { LinksTheme, onMenuBtnClick } from './header';
 
 export function getResultsIngredients() {
@@ -20,27 +25,29 @@ getResultsIngredients();
 export async function onPageFavIngredients() {
   onMenuBtnClick();
   LinksTheme.classList.toggle('favorite-wrapper__close');
-
+  refs.loadMore.classList.remove('pagecocktails');
   refs.heroSection.style.display = 'none';
   refs.cocktailTitle.textContent = 'Favorite ingredients';
   refs.cocktailTitle.parentNode.style.marginTop = '60px';
   refs.listCocktail.innerHTML = '';
   refs.listCocktail.classList.add('list-ing');
   refs.listCocktail.classList.add('card-set');
-
   refs.listCocktail.classList.remove('modal-ingredients__list');
 
   const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
   if (!parsedArray) {
     return;
   }
+
   const array = parsedArray.map(id => {
     return fetchCocktail.getIngredientsById(id);
   });
   const res = await Promise.all(array);
-  const markup = createIngredientsMarkup(res, data);
 
-  renderMarkup(refs.listCocktail, markup.join(''));
+  const markup = createIngredientsMarkup(res, data);
+  const ingr = filterQuantityItems(markup);
+
+  renderMarkup(refs.listCocktail, ingr);
 }
 
 export async function onloadMoreIngr(e) {
