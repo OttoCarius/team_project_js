@@ -17,6 +17,7 @@ const favoriteIngredients = document.querySelector(
 const active = document.querySelectorAll(
   'div.navigation-wrapper, div.theme-wrapper, form.search__form'
 );
+
 menuOpenBtn.addEventListener('click', onMenuBtnClick);
 menuCloseBtn.addEventListener('click', onMenuBtnClick);
 favoriteCocktails.addEventListener('click', onPageFavCocktails);

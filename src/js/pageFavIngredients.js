@@ -1,11 +1,19 @@
 import { refs } from './refs';
-import { createIngredientsMarkup, renderMarkup } from './markup';
+import {
+  createIngredientsMarkup,
+  renderMarkup,
+  filterQuantityItems,
+} from './markup';
 import { fetchCocktail } from '..';
 import { FAVORITE_INGREDIENTS } from './addToFavourite';
 import { createModalIngredientMarkup } from './modal-ingredient';
 import { addToFavoriteIngrModal } from './addToFavourite';
 import data from './object';
 import { LinksTheme } from './header';
+import { onLoadMoreFavCock } from './pageFavCocktails';
+
+// refs.loadMore.addEventListener('click', onLoadMoreFavIngr);
+// refs.loadMore.removeEventListener('click', onLoadMoreFavCock);
 
 export function getResultsIngredients() {
   const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
@@ -19,27 +27,29 @@ getResultsIngredients();
 
 export async function onPageFavIngredients() {
   LinksTheme.classList.toggle('favorite-wrapper__close');
-
+  refs.loadMore.classList.remove('pagecocktails');
   refs.heroSection.style.display = 'none';
   refs.cocktailTitle.textContent = 'Favorite ingredients';
   refs.cocktailTitle.parentNode.style.marginTop = '60px';
   refs.listCocktail.innerHTML = '';
   refs.listCocktail.classList.add('list-ing');
   refs.listCocktail.classList.add('card-set');
-
   refs.listCocktail.classList.remove('modal-ingredients__list');
 
   const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
   if (!parsedArray) {
     return;
   }
+
   const array = parsedArray.map(id => {
     return fetchCocktail.getIngredientsById(id);
   });
   const res = await Promise.all(array);
-  const markup = createIngredientsMarkup(res, data);
 
-  renderMarkup(refs.listCocktail, markup.join(''));
+  const markup = createIngredientsMarkup(res, data);
+  const ingr = filterQuantityItems(markup);
+
+  renderMarkup(refs.listCocktail, ingr);
 }
 
 export async function onloadMoreIngr(e) {
@@ -70,3 +80,19 @@ export function onRemoveIngr(e) {
   const id = e.target.dataset.ingr_id;
   data.ingredients = id;
 }
+
+// async function onLoadMoreFavIngr() {
+// refs.loadMore.removeEventListener('click', onLoadMoreFavCock);
+// refs.loadMore.style.display = 'none';
+// const parsedArray = JSON.parse(localStorage.getItem(FAVORITE_INGREDIENTS));
+// if (!parsedArray) {
+//   return;
+// }
+// const array = parsedArray.map(id => {
+//   return fetchCocktail.getResultsById(id);
+// });
+// const res = await Promise.all(array);
+
+// const markup = createRandomMarkup(res, data).join('');
+// renderMarkup(refs.listCocktail, markup);
+// }
