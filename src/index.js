@@ -41,9 +41,6 @@ storageCocktailByName();
 getResultsCocktails();
 getResultsIngredients();
 
-// addToFavourite();
-// addToFavouriteModal(e);
-
 //Listener
 refs.searchCocktails.addEventListener('submit', onFormSubmit);
 refs.heroList.addEventListener('click', onLetterClick);
@@ -51,11 +48,3 @@ refs.searchSelect.addEventListener('change', onSelectChange);
 refs.listCocktail.addEventListener('click', onloadMoreClick);
 refs.listCocktail.addEventListener('click', onloadMoreIngr);
 refs.listCocktail.addEventListener('click', onRemoveIngr);
-
-// refs.listFavoriteCocktails.addEventListener()
-// refs.listCocktail.addEventListener('click', addToFavourite);
-// refs.addToFavouriteModal.addEventListener('click', addToFavouriteModal);
-
-//Functions
-// fetchCocktail.ingredientsById('1');
-// console.log(await fetchCocktail.ingredientsById('1'));

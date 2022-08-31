@@ -19,7 +19,6 @@ export async function storageCocktailByName() {
 
 export function onLoadMore() {
   refs.loadMore.style.display = 'none';
-  console.log('click on the button');
   const savedCocktails = localStorage.getItem(STORAGE_KEY);
   const parsedCocktails = JSON.parse(savedCocktails);
   const markup = createMarkup(parsedCocktails, data);

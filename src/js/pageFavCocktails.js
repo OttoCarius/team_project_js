@@ -22,6 +22,11 @@ export function getResultsCocktails() {
 getResultsCocktails();
 
 export async function onPageFavCocktails() {
+  refs.textFavoritePage.style.display = 'none';
+  document.body.style.minHeight = '100vh';
+  document.body.style.display = 'flex';
+  document.body.style.flexDirection = 'column';
+  document.body.style.justifyContent = 'space-between';
   onMenuBtnClick();
   LinksTheme.classList.toggle('favorite-wrapper__close');
   refs.loadMore.classList.add('pagecocktails');
@@ -34,7 +39,9 @@ export async function onPageFavCocktails() {
   refs.listCocktail.classList.add('modal-ingredients__list');
 
   const parsedArray = JSON.parse(localStorage.getItem(FAVOURITE_KEY));
-  if (!parsedArray) {
+  if (parsedArray.length === 0) {
+    refs.textFavoritePage.textContent = 'No cocktails added yet!';
+    refs.textFavoritePage.style.display = 'block';
     return;
   }
 
@@ -79,7 +86,6 @@ export async function onLoadMoreFavCock(e) {
       return fetchCocktail.getIngredientsById(id);
     });
     const res = await Promise.all(array);
-    console.log(res);
     const markup = createIngredientsMarkup(res, data);
 
     renderMarkup(refs.listCocktail, markup.join(''));

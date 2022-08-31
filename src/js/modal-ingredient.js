@@ -21,6 +21,8 @@ export async function onIngredientClick(e) {
 
 export function openModalIngredient(ingredient, data) {
   toggleModal();
+  document.body.style.overflow = 'hidden';
+
   createModalIngredientMarkup(ingredient, data);
   const modalCloseBtn = document.querySelector('[data-modal-close-ingr]');
   modalCloseBtn.addEventListener('click', toggleModal);
@@ -80,4 +82,5 @@ id=${idIngredient}
 function toggleModal() {
   refs.modalIngredient.classList.toggle('is-hidden');
   refs.modalCocktail.classList.toggle('is-hidden');
+  document.body.style.overflow = 'visible';
 }

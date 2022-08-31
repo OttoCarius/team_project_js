@@ -31,6 +31,22 @@
     padding-right: 16px;
   }
 }
+.text-page-favorite {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+  color: #202025;
+  font-family: Roboto;
+  font-weight: 600;
+  @include mq(tab) {
+    font-size: 30px;
+    margin-bottom: 100px;
+  }
+  @include mq(desc) {
+    font-size: 32px;
+    margin-bottom: 120px;
+  }
+}
 .card-list {
   width: 280px;
   margin-bottom: 20px;
