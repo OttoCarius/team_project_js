@@ -11,6 +11,6 @@ export const refs = {
   searchCocktails: document.querySelector('.js-search-cocktail'),
   cocktailSection: document.querySelector('.cocktail-section'),
   loadMore: document.querySelector('.load-more'),
-  listFavoriteCocktails: document.querySelector('.favorite-cocktails-list'),
-  listFavoriteIngredients: document.querySelector('.list-ing'),
+  textFavoritePage: document.querySelector('.text-page-favorite'),
+  footer: document.querySelector('.footer'),
 };

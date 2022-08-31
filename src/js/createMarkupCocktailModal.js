@@ -20,6 +20,8 @@ export async function onloadMoreClick(e) {
 
 export function openModalCocktail(res) {
   toggleModal();
+  document.body.style.overflow = 'hidden';
+
   createMarkupCocktailModal(res, data);
 
   const cocktailModalIngredientsList = document.querySelector(
@@ -94,4 +96,5 @@ function createMarkupCocktailModal(res, data) {
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
+  document.body.style.overflow = 'visible';
 }
